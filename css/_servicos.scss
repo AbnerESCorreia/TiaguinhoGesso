@@ -1,0 +1,28 @@
+@import "variables";
+
+#servicos {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: $section-bg-alt; // Use o tom alternativo
+
+  @include dark-mode {
+    background-color: $section-bg-alt; // O mixin dark-mode recalcula o $section-bg-alt
+  }
+
+  .card {
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @include dark-mode;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .card-title {
+      color: $color-secondary;
+      font-weight: 600;
+    }
+  }
+}

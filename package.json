@@ -1,0 +1,22 @@
+{
+  "name": "tiaguinhogesso",
+  "version": "1.0.0",
+  "description": "Landing page para Gesseiro Tiaguinho Gesso",
+  "main": "index.js",
+  "type": "commonjs",
+  "keywords": [
+    "sass",
+    "bootstrap",
+    "landingpage"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.94.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:build": "sass css/main.scss:css/main.css",
+    "sass:watch": "sass --watch css/main.scss:css/main.css"
+  }
+}

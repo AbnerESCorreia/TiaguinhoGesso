@@ -1,0 +1,49 @@
+@import "variables";
+
+body {
+  // CORREÇÃO: Usar $default-bg em vez de $background-color
+  background-color: $default-bg;
+  color: $default-text;
+  overflow-x: hidden;
+
+  // Aplicar a mudança de cor no dark mode
+  @include dark-mode {
+    // As propriedades CSS mudam
+    background-color: $color-background-dark;
+    color: $color-text-light;
+  }
+}
+
+// Estilo dos Componentes Fixos (WhatsApp/Instagram)
+.fixed-right-icons {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1050;
+
+  .icon-link {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .whatsapp {
+    background-color: #25d366;
+    color: white;
+  }
+
+  .instagram {
+    // Cor de base do Instagram (Pode usar um linear-gradient se quiser um efeito mais real)
+    background-color: #e1306c;
+    color: white;
+  }
+}

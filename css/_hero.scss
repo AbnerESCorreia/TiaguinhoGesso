@@ -1,0 +1,73 @@
+@import "variables";
+
+// Defina a URL da sua imagem. Crie uma pasta 'img' e coloque sua imagem aqui
+$hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
+
+#hero {
+  // 1. Altura total da tela e cor padrão do texto (deve ser claro para contrastar com o overlay)
+  height: 100vh;
+  color: $color-text-light;
+
+  // 2. Estilos da Imagem de Fundo
+  background-image: $hero-bg-image;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+
+  // 3. Sobreposição de cor (Overlay)
+  position: relative;
+  display: flex; // Usa Flexbox para centralizar
+  align-items: center; // Centraliza verticalmente
+  justify-content: center; // Centraliza horizontalmente
+  z-index: 2; // Coloca o conteúdo acima do overlay
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.4);
+    z-index: -1; // Coloca o overlay atrás do conteúdo do #hero
+
+    @include dark-mode {
+      // Deixe o overlay ainda mais escuro no Dark Mode para melhorar o contraste geral
+      background-color: rgba(black, 0.8);
+    }
+  }
+
+  // 4. Estilos do Conteúdo (Texto e Botão)
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center; // Garante que o conteúdo seja centralizado
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    // Mantenha o texto com uma cor clara padrão, não use lighten() em cor escura
+    // A cor aqui é apenas um ajuste leve se o texto principal for $color-text-light (branco)
+    color: lighten($color-text-light, 5%); // Exemplo
+
+    @include dark-mode {
+      color: $color-text-light; // Garante branco puro ou quase puro
+    }
+  }
+
+  .btn-warning {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+    color: $color-text-light;
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+    }
+  }
+}

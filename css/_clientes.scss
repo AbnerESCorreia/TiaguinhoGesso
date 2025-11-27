@@ -1,0 +1,49 @@
+@import "variables";
+
+#clientes {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  .carousel {
+    max-width: 700px; // Limita a largura do carrossel no centro
+    margin: auto;
+  }
+
+  .carousel-item {
+    padding: 3rem 1rem;
+  }
+
+  .blockquote {
+    font-style: italic;
+    border-left: 5px solid $color-secondary;
+    padding-left: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+
+    p {
+      font-size: 1.15rem;
+    }
+  }
+
+  .blockquote-footer {
+    // 1. Light Mode: Clareia a cor escura padrão
+    // Usamos $default-text (que é $color-text-dark) ou $color-text-dark diretamente.
+    color: lighten($default-text, 20%);
+
+    // 2. Dark Mode: Escurece a cor clara padrão (para contraste no fundo escuro)
+    @include dark-mode {
+      // Se o $default-text está sendo aplicado como branco no Dark Mode,
+      // queremos escurecer um pouco.
+      color: darken($color-text-light, 20%);
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    filter: invert(40%) sepia(90%) saturate(1000%) hue-rotate(30deg); /* Laranja nos botões */
+    @include dark-mode {
+      filter: invert(70%) sepia(90%) saturate(1000%) hue-rotate(30deg); /* Mais claro no dark mode */
+    }
+  }
+}

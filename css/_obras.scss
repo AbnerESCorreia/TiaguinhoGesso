@@ -1,0 +1,27 @@
+@import "variables";
+
+#obras {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: $section-bg-alt;
+
+  @include dark-mode {
+    background-color: $section-bg-alt;
+  }
+
+  .card {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}

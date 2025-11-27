@@ -1,0 +1,22 @@
+// 1. Cores Fixas (Paleta) - NUNCA ALTERAM
+$color-primary-light: #fafafa; // Branco Quase Puro
+$color-secondary: #ff8c00; // Laranja (Marca)
+$color-text-dark: #4a4a4a; // Cinza Escuro (Texto Light Mode)
+$color-background-dark: #1c1c1c; // Fundo Dark Mode
+$color-text-light: #fafafa; // Texto Dark Mode
+
+// 2. Variáveis de Tema Global (Usadas como default Light Mode)
+// Mantenha a clareza para o Light Mode.
+$default-bg: $color-primary-light;
+$default-text: $color-text-dark;
+
+// 3. Definição da Cor Alternada (Correto)
+$section-bg-alt: lighten($color-primary-light, 1%);
+
+// 4. Mixin para Dark Mode
+@mixin dark-mode {
+  [data-bs-theme="dark"] & {
+    // NÃO PODE HAVER DECLARAÇÃO DE VARIÁVEIS AQUI
+    @content;
+  }
+}

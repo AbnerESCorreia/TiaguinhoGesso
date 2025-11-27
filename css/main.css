@@ -1,0 +1,275 @@
+@charset "UTF-8";
+body {
+  background-color: #fafafa;
+  color: #4a4a4a;
+  overflow-x: hidden;
+}
+[data-bs-theme=dark] body {
+  background-color: #1c1c1c;
+  color: #fafafa;
+}
+
+.fixed-right-icons {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1050;
+}
+.fixed-right-icons .icon-link {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 2rem;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.fixed-right-icons .icon-link:hover {
+  transform: scale(1.1);
+}
+.fixed-right-icons .whatsapp {
+  background-color: #25d366;
+  color: white;
+}
+.fixed-right-icons .instagram {
+  background-color: #e1306c;
+  color: white;
+}
+
+#header {
+  background-color: #fafafa;
+  color: #4a4a4a;
+}
+#header .navbar-brand img {
+  height: 40px;
+  filter: none;
+}
+#header .nav-link {
+  color: #4a4a4a;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+#header .nav-link:hover {
+  color: #ff8c00;
+}
+#header #darkModeToggle {
+  color: #ff8c00;
+  border-color: #ff8c00;
+}
+[data-bs-theme=dark] #header #darkModeToggle {
+  background-color: #ff8c00;
+  color: #fafafa;
+  border-color: #ff8c00;
+}
+
+#hero {
+  height: 100vh;
+  color: #fafafa;
+  background-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+[data-bs-theme=dark] #hero::before {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#hero {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+#hero .hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+}
+#hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+#hero .lead {
+  color: white;
+}
+[data-bs-theme=dark] #hero .lead {
+  color: #fafafa;
+}
+#hero .btn-warning {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+  color: #fafafa;
+}
+#hero .btn-warning:hover {
+  background-color: #cc7000;
+}
+
+#quem-somos {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+#quem-somos .row {
+  margin-top: 2rem;
+}
+#quem-somos h3 {
+  color: #ff8c00;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+#quem-somos i {
+  font-size: 3rem;
+}
+#quem-somos .lead {
+  color: #4a4a4a;
+}
+[data-bs-theme=dark] #quem-somos .lead {
+  color: white;
+}
+#quem-somos .animate-on-scroll {
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transform: translateY(0);
+}
+#quem-somos .slide-in-left {
+  transform: translateX(-100%);
+}
+#quem-somos .slide-in-right {
+  transform: translateX(100%);
+}
+#quem-somos .slide-in-bottom {
+  transform: translateY(100%);
+}
+#quem-somos .is-animated {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+#servicos {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: rgb(252.55, 252.55, 252.55);
+}
+[data-bs-theme=dark] #servicos {
+  background-color: rgb(252.55, 252.55, 252.55);
+}
+#servicos .card {
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#servicos .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+#servicos .card .card-title {
+  color: #ff8c00;
+  font-weight: 600;
+}
+
+#clientes {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+#clientes .carousel {
+  max-width: 700px;
+  margin: auto;
+}
+#clientes .carousel-item {
+  padding: 3rem 1rem;
+}
+#clientes .blockquote {
+  font-style: italic;
+  border-left: 5px solid #ff8c00;
+  padding-left: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+#clientes .blockquote p {
+  font-size: 1.15rem;
+}
+#clientes .blockquote-footer {
+  color: #7d7d7d;
+}
+[data-bs-theme=dark] #clientes .blockquote-footer {
+  color: #c7c7c7;
+}
+#clientes .carousel-control-prev,
+#clientes .carousel-control-next {
+  filter: invert(40%) sepia(90%) saturate(1000%) hue-rotate(30deg); /* Laranja nos botões */
+}
+[data-bs-theme=dark] #clientes .carousel-control-prev,
+[data-bs-theme=dark] #clientes .carousel-control-next {
+  filter: invert(70%) sepia(90%) saturate(1000%) hue-rotate(30deg); /* Mais claro no dark mode */
+}
+
+#obras {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: rgb(252.55, 252.55, 252.55);
+}
+[data-bs-theme=dark] #obras {
+  background-color: rgb(252.55, 252.55, 252.55);
+}
+#obras .card {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+#obras .card:hover img {
+  transform: scale(1.05);
+}
+#obras .card-img-top {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+#contato {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+#contato p {
+  margin-bottom: 2rem;
+}
+#contato .form-control {
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+[data-bs-theme=dark] #contato .form-control {
+  background-color: #333;
+  border-color: #555;
+  color: #fafafa;
+}
+
+footer {
+  background-color: #4a4a4a !important;
+  color: #fafafa;
+}
+[data-bs-theme=dark] footer {
+  background-color: black !important;
+}
+footer p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+footer small {
+  color: white;
+}
+footer .bi-code-slash {
+  color: #ff8c00;
+}
+
+/*# sourceMappingURL=main.css.map */

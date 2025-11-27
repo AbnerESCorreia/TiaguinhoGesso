@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+// ESTE DEVE SER O PRIMEIRO ARQUIVO IMPORTADO
+@import "variables";
+
+// AQUI ESTÃO OS ARQUIVOS DE SEÇÃO, como _clientes.scss
+@import "global";
+@import "header";
+@import "hero";
+@import "quemsomos";
+@import "servicos";
+@import "clientes";
+@import "obras";
+@import "contato";
+@import "footer";

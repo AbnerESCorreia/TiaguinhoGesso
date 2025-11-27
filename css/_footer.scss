@@ -1,0 +1,24 @@
+@import "variables";
+
+footer {
+  background-color: $color-text-dark !important; // Cor escura para o rodapé
+  color: $color-text-light;
+
+  // Estilo ajustado para Dark Mode
+  [data-bs-theme="dark"] & {
+    background-color: black !important;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  small {
+    color: lighten($color-text-light, 20%);
+  }
+
+  .bi-code-slash {
+    color: $color-secondary;
+  }
+}

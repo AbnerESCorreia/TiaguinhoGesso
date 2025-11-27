@@ -1,0 +1,32 @@
+#header {
+  // ESTILOS GERAIS DO HEADER (Aplicados no Light Mode)
+  background-color: $color-primary-light; // Padrão Light Mode
+  color: $color-text-dark; // Padrão Light Mode  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand img {
+    height: 40px;
+    filter: none;
+  }
+
+  .nav-link {
+    // Usa a variável de texto padrão que foi definida no #header
+    color: $default-text;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  #darkModeToggle {
+    color: $color-secondary;
+    border-color: $color-secondary;
+
+    [data-bs-theme="dark"] & {
+      background-color: $color-secondary;
+      color: $color-text-light;
+      border-color: $color-secondary;
+    }
+  }
+}

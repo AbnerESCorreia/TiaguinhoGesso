@@ -1,0 +1,53 @@
+@import "variables";
+
+#quem-somos {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  .row {
+    margin-top: 2rem;
+  }
+
+  h3 {
+    color: $color-secondary;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  i {
+    font-size: 3rem;
+  }
+
+  .lead {
+    color: $default-text;
+
+    @include dark-mode {
+      color: lighten($color-text-light, 5%);
+    }
+  }
+
+  // Estilos para as animações
+  .animate-on-scroll {
+    opacity: 0; // Esconde inicialmente
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; // Transição suave
+    transform: translateY(0); // Posição padrão
+  }
+
+  // Estados iniciais (antes da animação)
+  .slide-in-left {
+    transform: translateX(-100%); // Começa fora da tela à esquerda
+  }
+  .slide-in-right {
+    transform: translateX(100%); // Começa fora da tela à direita
+  }
+  .slide-in-bottom {
+    transform: translateY(100%); // Começa fora da tela por baixo
+  }
+
+  // Estado final (quando a animação é ativada)
+  // Esta classe será adicionada pelo JavaScript
+  .is-animated {
+    opacity: 1;
+    transform: translateX(0) translateY(0); // Volta para a posição original
+  }
+}
