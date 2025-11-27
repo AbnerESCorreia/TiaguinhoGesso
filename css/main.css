@@ -20,13 +20,17 @@ body {
   display: block;
   margin-bottom: 15px;
   font-size: 2rem;
-  padding: 8px;
-  border-radius: 50%;
+  width: 55px; /* Largura igual à altura */
+  height: 55px; /* Altura igual à largura */
+  line-height: 55px; /* Centraliza o ícone verticalmente */
+  text-align: center; /* Centraliza o ícone horizontalmente */
+  border-radius: 50%; /* Essencial para ser um círculo perfeito */
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .fixed-right-icons .icon-link:hover {
   transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 .fixed-right-icons .whatsapp {
   background-color: #25d366;
@@ -35,6 +39,34 @@ body {
 .fixed-right-icons .instagram {
   background-color: #e1306c;
   color: white;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px; /* Posição a partir da margem inferior */
+  right: 25px; /* Posição a partir da margem direita */
+  z-index: 1060; /* Acima de outros elementos fixos (como o WhatsApp) */
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fafafa; /* Cor do ícone (branco) */
+  background-color: #ff8c00; /* Cor de fundo (laranja da marca) */
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: none; /* Escondido por padrão */
+  text-decoration: none; /* Remove sublinhado do link */
+}
+.back-to-top:hover {
+  background-color: #cc7000;
+  transform: scale(1.1);
+}
+[data-bs-theme=dark] .back-to-top {
+  background-color: #ff8c00;
+  color: #4a4a4a; /* Opcional: Se quiser o ícone escuro no Dark Mode */
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
 }
 
 #header {

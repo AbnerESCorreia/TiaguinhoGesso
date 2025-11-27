@@ -26,13 +26,20 @@ body {
     display: block;
     margin-bottom: 15px;
     font-size: 2rem;
-    padding: 8px;
-    border-radius: 50%;
+
+    // 🔑 GARANTE O FORMATO CIRCULAR
+    width: 55px; /* Largura igual à altura */
+    height: 55px; /* Altura igual à largura */
+    line-height: 55px; /* Centraliza o ícone verticalmente */
+    text-align: center; /* Centraliza o ícone horizontalmente */
+    border-radius: 50%; /* Essencial para ser um círculo perfeito */
+
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); // Sombra mais evidente para efeito 3D
 
     &:hover {
       transform: scale(1.1);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); // Sombra mais forte no hover
     }
   }
 
@@ -42,8 +49,44 @@ body {
   }
 
   .instagram {
-    // Cor de base do Instagram (Pode usar um linear-gradient se quiser um efeito mais real)
+    // Cor de base do Instagram
     background-color: #e1306c;
     color: white;
+  }
+}
+
+// Estilo para o botão "Voltar ao Topo"
+.back-to-top {
+  position: fixed;
+  bottom: 25px; /* Posição a partir da margem inferior */
+  right: 25px; /* Posição a partir da margem direita */
+  z-index: 1060; /* Acima de outros elementos fixos (como o WhatsApp) */
+
+  // Estilo Circular e Cores
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: $color-text-light; /* Cor do ícone (branco) */
+  background-color: $color-secondary; /* Cor de fundo (laranja da marca) */
+  border-radius: 50%;
+
+  // Transições e Sombra
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: none; /* Escondido por padrão */
+  text-decoration: none; /* Remove sublinhado do link */
+
+  &:hover {
+    background-color: darken($color-secondary, 10%);
+    transform: scale(1.1);
+  }
+
+  // Estilo no Dark Mode
+  @include dark-mode {
+    background-color: $color-secondary;
+    color: $color-text-dark; /* Opcional: Se quiser o ícone escuro no Dark Mode */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
   }
 }

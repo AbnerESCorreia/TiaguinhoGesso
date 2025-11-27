@@ -80,4 +80,25 @@ document.addEventListener("DOMContentLoaded", function () {
   animateOnScrollElements.forEach((element) => {
     observer.observe(element);
   });
+
+  // CÓDIGO PARA O BOTÃO VOLTAR AO TOPO
+  const backToTopButton = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    // Mostra o botão após rolar 300px
+    if (window.scrollY > 300) {
+      backToTopButton.style.display = "block";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  });
+
+  backToTopButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    // Rola suavemente para o topo da página
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 });
