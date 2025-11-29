@@ -192,10 +192,11 @@ body {
 #servicos {
   padding-top: 4rem;
   padding-bottom: 4rem;
-  background-color: rgb(252.55, 252.55, 252.55);
 }
 [data-bs-theme=dark] #servicos {
-  background-color: rgb(252.55, 252.55, 252.55);
+  background-color: #333;
+  border-color: #555;
+  color: #fafafa;
 }
 #servicos .card {
   border-radius: 8px;
@@ -250,10 +251,11 @@ body {
 #obras {
   padding-top: 4rem;
   padding-bottom: 4rem;
-  background-color: rgb(252.55, 252.55, 252.55);
 }
 [data-bs-theme=dark] #obras {
-  background-color: rgb(252.55, 252.55, 252.55);
+  background-color: #333;
+  border-color: #555;
+  color: #fafafa;
 }
 #obras .card {
   overflow: hidden;

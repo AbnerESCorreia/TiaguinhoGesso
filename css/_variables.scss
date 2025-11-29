@@ -11,7 +11,7 @@ $default-bg: $color-primary-light;
 $default-text: $color-text-dark;
 
 // 3. Definição da Cor Alternada (Correto)
-$section-bg-alt: lighten($color-primary-light, 1%);
+//$section-bg-alt: lighten($color-primary-light, 5%);
 
 // 4. Mixin para Dark Mode
 @mixin dark-mode {

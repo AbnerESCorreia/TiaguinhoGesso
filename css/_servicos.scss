@@ -3,10 +3,11 @@
 #servicos {
   padding-top: 4rem;
   padding-bottom: 4rem;
-  background-color: $section-bg-alt; // Use o tom alternativo
 
   @include dark-mode {
-    background-color: $section-bg-alt; // O mixin dark-mode recalcula o $section-bg-alt
+    background-color: #333;
+    border-color: #555;
+    color: $color-text-light;
   }
 
   .card {
