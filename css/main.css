@@ -271,6 +271,18 @@ body {
   object-fit: cover;
   transition: transform 0.5s ease;
 }
+#obras .work-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+#obras .work-link .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#obras .work-link:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
 
 #contato {
   position: relative;

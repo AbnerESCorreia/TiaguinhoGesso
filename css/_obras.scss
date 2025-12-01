@@ -25,4 +25,20 @@
     object-fit: cover;
     transition: transform 0.5s ease;
   }
+
+  .work-link {
+    display: block; // Faz o link cobrir o card inteiro
+    text-decoration: none; // Remove o sublinhado padrão
+    color: inherit; // Mantém a cor do texto (se houver)
+
+    // Efeito de Transição e Sombra ao passar o mouse
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    &:hover .card {
+      transform: translateY(-5px); // Sobe levemente o card
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important; // Sombra mais forte
+    }
+  }
 }
