@@ -74,7 +74,8 @@ body {
   color: #4a4a4a;
 }
 #header .navbar-brand img {
-  height: 40px;
+  height: 60px; /* Aumentado para 120px (ajuste este valor conforme sua necessidade) */
+  width: auto; /* IMPORTANTE: Garante que a largura se ajuste automaticamente */
   filter: none;
 }
 #header .nav-link {
@@ -272,20 +273,27 @@ body {
 }
 
 #contato {
+  position: relative;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  background-color: rgb(247.45, 247.45, 247.45);
 }
-#contato p {
-  margin-bottom: 2rem;
+[data-bs-theme=dark] #contato {
+  background-color: rgb(15.25, 15.25, 15.25);
 }
-#contato .form-control {
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
-}
-[data-bs-theme=dark] #contato .form-control {
-  background-color: #333;
-  border-color: #555;
-  color: #fafafa;
+#contato::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 footer {

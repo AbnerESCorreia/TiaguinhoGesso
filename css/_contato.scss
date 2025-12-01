@@ -1,23 +1,34 @@
-@import "variables";
+@use "sass:color"; // Para usar color.adjust() ou outras funções de cor
+
+$contato-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
 
 #contato {
+  position: relative; // Essencial para o posicionamento do ::before
   padding-top: 4rem;
   padding-bottom: 4rem;
 
-  p {
-    margin-bottom: 2rem;
+  // REMOVA background-image: $contato-bg-image; daqui.
+
+  // Garante que o fundo seja visível no Dark Mode
+  background-color: color.adjust($color-primary-light, $lightness: -1%);
+
+  @include dark-mode {
+    background-color: color.adjust($color-background-dark, $lightness: -5%);
   }
 
-  .form-control {
-    border-radius: 4px;
-    padding: 0.75rem 1rem;
-
-    @include dark-mode {
-      background-color: #333;
-      border-color: #555;
-      color: $color-text-light;
-    }
+  // NOVO: Pseudo-elemento para a imagem de fundo
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: $contato-bg-image;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; // Efeito de Parallax sutil (opcional)
+    opacity: 0.2; // Opacidade para deixar o texto legível (ajuste se necessário)
+    z-index: -1; // Coloca a imagem atrás do conteúdo (formulário, texto, etc.)
   }
-
-  // Estilo do botão de envio (Já definido no _hero.scss)
 }
