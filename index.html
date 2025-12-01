@@ -21,7 +21,7 @@
     <header id="header" class="sticky-top shadow-sm py-3">
         <nav class="navbar navbar-expand-lg container">
             <a class="navbar-brand" href="#hero">
-                <img src="img/logo.png" alt="Tiaguinho Gesso Logo" height="40">
+                <img src="img/LogoHeaderTG.png" alt="Tiaguinho Gesso Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -180,32 +180,56 @@
         <section id="contato" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-4">Entre em Contato</h2>
+                <p class="text-center mb-5 lead">Preencha o formulário abaixo e solicite um orçamento sem compromisso. Atendemos de **7:00 às 17:00**.</p>
+                
                 <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <p class="text-center">Preencha o formulário abaixo e solicite um orçamento sem compromisso. Atendemos de **7:00 às 17:00**.</p>
-                        <form action="SEU_SCRIPT_DE_ENVIO" method="POST" class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome Completo</label>
-                                <input type="text" class="form-control" id="nome" required>
-                                <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                    
+                    <div class="col-lg-5 mb-4 mb-lg-0 ">
+                        <div class="contact-card glassmorphism p-4 h-100"> 
+                            <h3 class="card-title text-center text-warning mb-4">Envie sua Mensagem</h3>
+                            <form action="SEU_SCRIPT_DE_ENVIO" method="POST" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome Completo</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                    <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefone" class="form-label">Telefone (WhatsApp)</label>
+                                    <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                                    <div class="invalid-feedback">Por favor, insira seu telefone.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensagem" class="form-label">Detalhes do Orçamento</label>
+                                    <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                                    <div class="invalid-feedback">Por favor, descreva seu orçamento.</div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-warning btn-sm">Enviar Orçamento</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="card">
+                            <div class="map-container shadow-lg rounded-3">
+                               <iframe 
+                                    src="https://maps.google.com/maps?q=Rua Francisco Camarano, 515, Piumhi, MG&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                    width="100%" 
+                                    height="550px" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                ></iframe>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="email" required>
-                                <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefone" class="form-label">Telefone (WhatsApp)</label>
-                                <input type="tel" class="form-control" id="telefone" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="mensagem" class="form-label">Detalhes do Orçamento</label>
-                                <textarea class="form-control" id="mensagem" rows="4" required></textarea>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-warning btn-lg">Enviar Orçamento</button>
-                            </div>
-                        </form>
+                            <p class="text-center mt-3 mb-0">R. Francisco Camarano, 515, Piumhi - MG, 37925-000</p>
+                        </div>
                     </div>
                 </div>
             </div>

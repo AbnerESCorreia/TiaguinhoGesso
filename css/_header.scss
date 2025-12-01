@@ -3,7 +3,8 @@
   color: $color-text-dark; // Padrão Light Mode  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .navbar-brand img {
-    height: 40px;
+    height: 60px; /* Aumentado para 120px (ajuste este valor conforme sua necessidade) */
+    width: auto; /* IMPORTANTE: Garante que a largura se ajuste automaticamente */
     filter: none;
   }
 
