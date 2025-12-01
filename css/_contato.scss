@@ -1,22 +1,14 @@
 @use "sass:color"; // Para usar color.adjust() ou outras funções de cor
 
-$contato-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
+// 1. Definição da Imagem de Fundo
+$contato-bg-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
 
 #contato {
-  position: relative; // Essencial para o posicionamento do ::before
+  position: relative; // Passo 1: Necessário para z-index e posicionamento absoluto
   padding-top: 4rem;
   padding-bottom: 4rem;
 
-  // REMOVA background-image: $contato-bg-image; daqui.
-
-  // Garante que o fundo seja visível no Dark Mode
-  background-color: color.adjust($color-primary-light, $lightness: -1%);
-
-  @include dark-mode {
-    background-color: color.adjust($color-background-dark, $lightness: -5%);
-  }
-
-  // NOVO: Pseudo-elemento para a imagem de fundo
+  // 2. Aplicação da Imagem via Pseudo-Elemento
   &::before {
     content: "";
     position: absolute;
@@ -24,11 +16,26 @@ $contato-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: $contato-bg-image;
-    background-size: cover;
+    background-image: $contato-bg-image; // Aplica a imagem
+    background-size: cover; // Garante que a imagem cubra toda a área
     background-position: center;
-    background-attachment: fixed; // Efeito de Parallax sutil (opcional)
-    opacity: 0.2; // Opacidade para deixar o texto legível (ajuste se necessário)
-    z-index: -1; // Coloca a imagem atrás do conteúdo (formulário, texto, etc.)
+    background-attachment: fixed;
+    opacity: 0.2; // Torna a imagem sutil para melhor leitura do texto
+    z-index: -1; // Envia para o fundo
+
+    @include dark-mode {
+      // Deixe o overlay ainda mais escuro no Dark Mode para melhorar o contraste geral
+      background-color: rgba(black, 0.8);
+    }
+  }
+
+  // 3. Estilo Glassmorphism (efeito de vidro no card)
+  .glasseffect {
+    background: rgba(255, 255, 255, 0.05); // Transparência
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); // Efeito de desfoque
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
