@@ -97,7 +97,11 @@
                             <div class="card-body text-center">
                                 <h3 class="card-title">Drywall e Divisórias</h3>
                                 <p class="card-text">Construção rápida, limpa e eficiente de paredes, nichos e estantes, com excelente isolamento acústico e térmico.</p>
-                                <a href="#contato" class="btn btn-sm btn-warning">Saiba Mais</a>
+                                
+                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#drywallModal">
+                                    Saiba Mais
+                                </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -109,7 +113,11 @@
                             <div class="card-body text-center">
                                 <h3 class="card-title">Forros de Gesso</h3>
                                 <p class="card-text">Rebaixamento de tetos, instalação de forros lisos ou decorados para embutir iluminação e modernizar seu ambiente.</p>
-                                <a href="#contato" class="btn btn-sm btn-warning">Saiba Mais</a>
+                                
+                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#forrosModal">
+                                    Saiba Mais
+                                </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -119,9 +127,13 @@
                             <img src="img/forrosanca.jpg" class="card-img-top" alt="Sanca de gesso aberta com iluminação LED indireta.">
                             
                             <div class="card-body text-center">
-                                <h3 class="card-title">Sancas e Detalhes Decorativos</h3>
+                                <h3 class="card-title">Sancas e Detalhes</h3>
                                 <p class="card-text">Criação de sancas abertas ou fechadas, nichos, molduras e painéis 3D que adicionam sofisticação e valor ao imóvel.</p>
-                                <a href="#contato" class="btn btn-sm btn-warning">Saiba Mais</a>
+                                
+                                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#sancasModal">
+                                    Saiba Mais
+                                </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -292,5 +304,93 @@
     <a href="#header" id="backToTop" class="back-to-top" aria-label="Voltar ao Topo da Página">
         <i class="bi bi-arrow-up"></i>
     </a>
+
+    
+
+    <div class="modal fade" id="drywallModal" tabindex="-1" aria-labelledby="drywallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="drywallModalLabel">Detalhes: Drywall e Divisórias</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body text-start">
+                    
+                    <p>O Drywall (parede seca) é a solução moderna para quem busca flexibilidade e agilidade na obra.</p>
+                    <p class="lead fw-bold text-warning">Principais Vantagens:</p>
+                    <ul>
+                        <li>Instalação Rápida: Reduz o tempo de construção em até 50%.</li>
+                        <li>Limpeza: Gera menos entulho e sujeira comparado à alvenaria tradicional.</li>
+                        <li>Desempenho: Oferece excelente isolamento termoacústico.</li>
+                        <li>Versatilidade: Perfeito para nichos, estantes embutidas e paredes curvas.</li>
+                    </ul>
+                    <p class="mt-4">Pronto para transformar seu espaço? Clique no botão abaixo e solicite um orçamento detalhado!</p>
+                </div>
+                
+                <div class="modal-footer justify-content-center">
+                    <a href="#contato" class="btn btn-warning" data-bs-dismiss="modal">Solicitar Orçamento Agora</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="forrosModal" tabindex="-1" aria-labelledby="forrosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forrosModalLabel">Detalhes: Forros de Gesso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body text-start">
+                    <p>Os forros de gesso são essenciais para um acabamento perfeito, permitindo o rebaixamento de tetos e a correção de imperfeições.</p>
+                    <p class="lead fw-bold text-warning">Principais Vantagens:</p>
+                    <ul>
+                        <li>Embutir Iluminação: Perfeito para a instalação de spots, trilhos e iluminação indireta.</li>
+                        <li>Isolamento: Melhora o isolamento térmico e acústico do ambiente.</li>
+                        <li>Estética: Cobre vigas e tubulações, deixando o teto totalmente liso e moderno.</li>
+                        <li>Opções: Trabalhamos com forro fixo (plaquinhas) ou acartonado (Drywall).</li>
+                    </ul>
+                    <p class="mt-4">Vamos planejar o teto perfeito para você? Solicite seu orçamento sem compromisso!</p>
+                </div>
+                
+                <div class="modal-footer justify-content-center">
+                    <a href="#contato" class="btn btn-warning" data-bs-dismiss="modal">Solicitar Orçamento Agora</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="sancasModal" tabindex="-1" aria-labelledby="sancasModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sancasModalLabel">Detalhes: Sancas e Decoração</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body text-start">
+                    <p>As sancas e os detalhes decorativos em gesso transformam a iluminação e adicionam um toque de luxo e sofisticação.</p>
+                    <p class="lead fw-bold text-warning">Nossas Especialidades:</p>
+                    <ul>
+                        <li>Sancas Abertas: Ideal para iluminação indireta (LED), dando a sensação de teto flutuante.</li>
+                        <li>Sancas Fechadas: Para um acabamento limpo, com spots embutidos.</li>
+                        <li>Molduras e Rodatetos: Detalhes clássicos que delimitam o teto e a parede.</li>
+                        <li>Painéis 3D: Criação de relevos e texturas decorativas na parede.</li>
+                    </ul>
+                    <p class="mt-4">Adicione sofisticação ao seu projeto! Fale conosco para conhecer os modelos!</p>
+                </div>
+                
+                <div class="modal-footer justify-content-center">
+                    <a href="#contato" class="btn btn-warning" data-bs-dismiss="modal">Solicitar Orçamento Agora</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
