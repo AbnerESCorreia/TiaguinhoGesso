@@ -42,7 +42,7 @@ $contato-bg-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
   .glasseffect {
     background: rgba(255, 255, 255, 0.05); // Transparência
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.017);
     backdrop-filter: blur(5px); // Efeito de desfoque
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
