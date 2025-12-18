@@ -1,12 +1,12 @@
-@import "variables";
+@use "sass:color";
+@use "variables" as *;
 
 footer {
-  background-color: $color-text-dark !important; // Cor escura para o rodapé
+  background-color: $color-text-dark; // Cor escura para o rodapé
   color: $color-text-light;
 
-  // Estilo ajustado para Dark Mode
   [data-bs-theme="dark"] & {
-    background-color: black !important;
+    background-color: black;
   }
 
   p {
@@ -15,7 +15,7 @@ footer {
   }
 
   small {
-    color: lighten($color-text-light, 20%);
+    color: color.adjust($color-text-light, $lightness: 20%);
   }
 
   .bi-code-slash {

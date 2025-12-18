@@ -19,12 +19,11 @@ body {
 .fixed-right-icons .icon-link {
   display: block;
   margin-bottom: 15px;
-  font-size: 2rem;
-  width: 55px; /* Largura igual à altura */
-  height: 55px; /* Altura igual à largura */
-  line-height: 55px; /* Centraliza o ícone verticalmente */
-  text-align: center; /* Centraliza o ícone horizontalmente */
-  border-radius: 50%; /* Essencial para ser um círculo perfeito */
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 50%;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -43,21 +42,21 @@ body {
 
 .back-to-top {
   position: fixed;
-  bottom: 25px; /* Posição a partir da margem inferior */
-  right: 25px; /* Posição a partir da margem direita */
-  z-index: 1060; /* Acima de outros elementos fixos (como o WhatsApp) */
+  bottom: 25px;
+  right: 25px;
+  z-index: 1060;
   width: 45px;
   height: 45px;
   line-height: 45px;
   text-align: center;
   font-size: 1.5rem;
-  color: #fafafa; /* Cor do ícone (branco) */
-  background-color: #ff8c00; /* Cor de fundo (laranja da marca) */
+  color: #fafafa;
+  background-color: #ff8c00;
   border-radius: 50%;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: none; /* Escondido por padrão */
-  text-decoration: none; /* Remove sublinhado do link */
+  display: none;
+  text-decoration: none;
 }
 .back-to-top:hover {
   background-color: #cc7000;
@@ -65,17 +64,18 @@ body {
 }
 [data-bs-theme=dark] .back-to-top {
   background-color: #ff8c00;
-  color: #4a4a4a; /* Opcional: Se quiser o ícone escuro no Dark Mode */
+  color: #4a4a4a;
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
 }
 
 #header {
   background-color: #fafafa;
   color: #4a4a4a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 #header .navbar-brand img {
-  height: 60px; /* Aumentado para 120px (ajuste este valor conforme sua necessidade) */
-  width: auto; /* IMPORTANTE: Garante que a largura se ajuste automaticamente */
+  height: 60px;
+  width: auto;
   filter: none;
 }
 #header .nav-link {
@@ -136,7 +136,7 @@ body {
   margin-bottom: 1rem;
 }
 #hero .lead {
-  color: white;
+  color: hsl(0, 0%, 103.0392156863%);
 }
 [data-bs-theme=dark] #hero .lead {
   color: #fafafa;
@@ -148,6 +148,7 @@ body {
 }
 #hero .btn-warning:hover {
   background-color: #cc7000;
+  border-color: #cc7000;
 }
 
 #quem-somos {
@@ -169,7 +170,7 @@ body {
   color: #4a4a4a;
 }
 [data-bs-theme=dark] #quem-somos .lead {
-  color: white;
+  color: hsl(0, 0%, 103.0392156863%);
 }
 #quem-somos .animate-on-scroll {
   opacity: 0;
@@ -289,6 +290,7 @@ body {
   padding-top: 4rem;
   padding-bottom: 4rem;
   background-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
+  background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   position: relative;
@@ -320,18 +322,18 @@ body {
 }
 
 footer {
-  background-color: #4a4a4a !important;
+  background-color: #4a4a4a;
   color: #fafafa;
 }
 [data-bs-theme=dark] footer {
-  background-color: black !important;
+  background-color: black;
 }
 footer p {
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
 footer small {
-  color: white;
+  color: hsl(0, 0%, 118.0392156863%);
 }
 footer .bi-code-slash {
   color: #ff8c00;

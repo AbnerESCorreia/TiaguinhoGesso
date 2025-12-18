@@ -1,4 +1,5 @@
-@import "variables";
+@use "sass:color";
+@use "variables" as *;
 
 #clientes {
   padding-top: 4rem;
@@ -27,21 +28,18 @@
   }
 
   .blockquote-footer {
-    // 1. Light Mode: Clareia a cor escura padrão
-    // Usamos $default-text (que é $color-text-dark) ou $color-text-dark diretamente.
-    color: lighten($default-text, 20%);
+    color: color.adjust($default-text, $lightness: 20%);
 
-    // 2. Dark Mode: Escurece a cor clara padrão (para contraste no fundo escuro)
+    // 2. Dark Mode
     @include dark-mode {
-      // Se o $default-text está sendo aplicado como branco no Dark Mode,
-      // queremos escurecer um pouco.
-      color: darken($color-text-light, 20%);
+      color: color.adjust($color-text-light, $lightness: -20%);
     }
   }
 
   .carousel-control-prev,
   .carousel-control-next {
     filter: invert(40%) sepia(90%) saturate(1000%) hue-rotate(30deg); /* Laranja nos botões */
+
     @include dark-mode {
       filter: invert(70%) sepia(90%) saturate(1000%) hue-rotate(30deg); /* Mais claro no dark mode */
     }

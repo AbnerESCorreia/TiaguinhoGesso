@@ -1,4 +1,5 @@
-@import "variables";
+@use "sass:color";
+@use "variables" as *; // Adicionado 'as *' para reconhecer as variáveis diretamente
 
 #quem-somos {
   padding-top: 4rem;
@@ -9,6 +10,7 @@
   }
 
   h3 {
+    // Agora o Sass reconhece $color-secondary sem o prefixo variables.
     color: $color-secondary;
     font-weight: 600;
     margin-top: 1rem;
@@ -21,33 +23,31 @@
   .lead {
     color: $default-text;
 
+    // O mixin dark-mode também é reconhecido diretamente pelo 'as *'
     @include dark-mode {
-      color: lighten($color-text-light, 5%);
+      color: color.adjust($color-text-light, $lightness: 5%);
     }
   }
 
   // Estilos para as animações
   .animate-on-scroll {
-    opacity: 0; // Esconde inicialmente
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out; // Transição suave
-    transform: translateY(0); // Posição padrão
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    transform: translateY(0);
   }
 
-  // Estados iniciais (antes da animação)
   .slide-in-left {
-    transform: translateX(-100%); // Começa fora da tela à esquerda
+    transform: translateX(-100%);
   }
   .slide-in-right {
-    transform: translateX(100%); // Começa fora da tela à direita
+    transform: translateX(100%);
   }
   .slide-in-bottom {
-    transform: translateY(100%); // Começa fora da tela por baixo
+    transform: translateY(100%);
   }
 
-  // Estado final (quando a animação é ativada)
-  // Esta classe será adicionada pelo JavaScript
   .is-animated {
     opacity: 1;
-    transform: translateX(0) translateY(0); // Volta para a posição original
+    transform: translateX(0) translateY(0);
   }
 }

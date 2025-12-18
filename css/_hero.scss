@@ -1,10 +1,11 @@
-@import "variables";
+@use "sass:color";
+@use "variables" as *;
 
-// Defina a URL da sua imagem. Crie uma pasta 'img' e coloque sua imagem aqui
+// Defina a URL da sua imagem.
 $hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
 
 #hero {
-  // 1. Altura total da tela e cor padrão do texto (deve ser claro para contrastar com o overlay)
+  // 1. Altura total da tela e cor padrão do texto
   height: 100vh;
   color: $color-text-light;
 
@@ -16,10 +17,10 @@ $hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
 
   // 3. Sobreposição de cor (Overlay)
   position: relative;
-  display: flex; // Usa Flexbox para centralizar
-  align-items: center; // Centraliza verticalmente
-  justify-content: center; // Centraliza horizontalmente
-  z-index: 2; // Coloca o conteúdo acima do overlay
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 
   &::before {
     content: "";
@@ -29,10 +30,9 @@ $hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
     width: 100%;
     height: 100%;
     background-color: rgba(black, 0.4);
-    z-index: -1; // Coloca o overlay atrás do conteúdo do #hero
+    z-index: -1;
 
     @include dark-mode {
-      // Deixe o overlay ainda mais escuro no Dark Mode para melhorar o contraste geral
       background-color: rgba(black, 0.8);
     }
   }
@@ -43,7 +43,7 @@ $hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
   .hero-content {
     position: relative;
     z-index: 5;
-    text-align: center; // Garante que o conteúdo seja centralizado
+    text-align: center;
   }
 
   h1 {
@@ -53,12 +53,10 @@ $hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
   }
 
   .lead {
-    // Mantenha o texto com uma cor clara padrão, não use lighten() em cor escura
-    // A cor aqui é apenas um ajuste leve se o texto principal for $color-text-light (branco)
-    color: lighten($color-text-light, 5%); // Exemplo
+    color: color.adjust($color-text-light, $lightness: 5%);
 
     @include dark-mode {
-      color: $color-text-light; // Garante branco puro ou quase puro
+      color: $color-text-light;
     }
   }
 
@@ -66,8 +64,10 @@ $hero-bg-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
     background-color: $color-secondary;
     border-color: $color-secondary;
     color: $color-text-light;
+
     &:hover {
-      background-color: darken($color-secondary, 10%);
+      background-color: color.adjust($color-secondary, $lightness: -10%);
+      border-color: color.adjust($color-secondary, $lightness: -10%);
     }
   }
 }

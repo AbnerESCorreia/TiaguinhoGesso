@@ -1,15 +1,18 @@
+@use "sass:color";
+@use "variables" as *;
+
 #header {
   background-color: $color-primary-light; // Padrão Light Mode
-  color: $color-text-dark; // Padrão Light Mode  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: $color-text-dark;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .navbar-brand img {
-    height: 60px; /* Aumentado para 120px (ajuste este valor conforme sua necessidade) */
-    width: auto; /* IMPORTANTE: Garante que a largura se ajuste automaticamente */
+    height: 60px;
+    width: auto;
     filter: none;
   }
 
   .nav-link {
-    // Usa a variável de texto padrão que foi definida no #header
     color: $default-text;
     font-weight: 500;
     transition: color 0.3s ease;

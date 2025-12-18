@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as *;
 
 #obras {
   padding-top: 4rem;
@@ -31,7 +31,6 @@
     text-decoration: none; // Remove o sublinhado padrão
     color: inherit; // Mantém a cor do texto (se houver)
 
-    // Efeito de Transição e Sombra ao passar o mouse
     .card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
