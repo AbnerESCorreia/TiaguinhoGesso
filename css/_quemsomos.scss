@@ -10,7 +10,6 @@
   }
 
   h3 {
-    // Agora o Sass reconhece $color-secondary sem o prefixo variables.
     color: $color-secondary;
     font-weight: 600;
     margin-top: 1rem;
@@ -23,7 +22,6 @@
   .lead {
     color: $default-text;
 
-    // O mixin dark-mode também é reconhecido diretamente pelo 'as *'
     @include dark-mode {
       color: color.adjust($color-text-light, $lightness: 5%);
     }

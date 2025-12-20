@@ -1,104 +1,116 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.getElementById("darkModeToggle");
-  const htmlElement = document.querySelector("html");
+  const htmlElement = document.documentElement;
   const modeIcon = document.getElementById("modeIcon");
 
-  // Função para aplicar o modo
+  /**
+   * --- 1. LÓGICA DE DARK MODE ---
+   */
   function setMode(mode) {
     if (mode === "dark") {
       htmlElement.setAttribute("data-bs-theme", "dark");
-      modeIcon.classList.remove("bi-sun-fill");
-      modeIcon.classList.add("bi-moon-fill");
       localStorage.setItem("theme", "dark");
+      
+      // Troca ícone para LUA
+      if (modeIcon) {
+        modeIcon.classList.remove("bi-sun-fill");
+        modeIcon.classList.add("bi-moon-stars-fill");
+        modeIcon.style.transform = "rotate(360deg)";
+      }
     } else {
       htmlElement.setAttribute("data-bs-theme", "light");
-      modeIcon.classList.remove("bi-moon-fill");
-      modeIcon.classList.add("bi-sun-fill");
       localStorage.setItem("theme", "light");
+      
+      // Troca ícone para SOL
+      if (modeIcon) {
+        modeIcon.classList.remove("bi-moon-stars-fill");
+        modeIcon.classList.add("bi-sun-fill");
+        modeIcon.style.transform = "rotate(0deg)";
+      }
     }
   }
 
-  // 1. Carregar o tema salvo ou usar o modo claro por padrão
-  const savedTheme = localStorage.getItem("theme") || "light";
-  setMode(savedTheme);
+  // Inicialização: Carrega tema salvo ou preferência do sistema
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    setMode(savedTheme);
+  } else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setMode(prefersDark ? "dark" : "light");
+  }
 
-  // 2. Evento de clique para alternar
-  toggleButton.addEventListener("click", function () {
-    const currentTheme = htmlElement.getAttribute("data-bs-theme");
-    if (currentTheme === "light") {
-      setMode("dark");
-    } else {
-      setMode("light");
-    }
-  });
-
-  // 3. Validação do formulário (Exemplo de Bootstrap Validation)
-  (function () {
-    "use strict";
-    var forms = document.querySelectorAll(".needs-validation");
-    Array.prototype.slice.call(forms).forEach(function (form) {
-      form.addEventListener(
-        "submit",
-        function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add("was-validated");
-        },
-        false
-      );
+  // Evento de Clique no Botão
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      const currentTheme = htmlElement.getAttribute("data-bs-theme");
+      setMode(currentTheme === "light" ? "dark" : "light");
     });
-  })();
+  }
 
-  // ----------------------------------------------------
-  // CÓDIGO PARA ANIMAÇÕES AO SCROLL (Intersection Observer)
-  // ESTE BLOCO ESTAVA FORA E FOI TRAZIDO PARA DENTRO
-  // ----------------------------------------------------
-
-  const animateOnScrollElements =
-    document.querySelectorAll(".animate-on-scroll");
-
-  const observerOptions = {
-    root: null, // Observa a viewport
-    rootMargin: "0px", // Nenhuma margem extra
-    threshold: 0.2, // Dispara quando 20% do elemento está visível
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  /**
+   * --- 2. ANIMAÇÕES AO SCROLL ---
+   */
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Se o elemento está visível, adiciona a classe de animação
         entry.target.classList.add("is-animated");
-        // Para a observação após animar (se você quiser que anime apenas uma vez)
-        observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.15 });
 
-  // Observa todos os elementos com a classe 'animate-on-scroll'
-  animateOnScrollElements.forEach((element) => {
-    observer.observe(element);
-  });
+  document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
 
-  // CÓDIGO PARA O BOTÃO VOLTAR AO TOPO
-  const backToTopButton = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    // Mostra o botão após rolar 300px
-    if (window.scrollY > 300) {
-      backToTopButton.style.display = "block";
-    } else {
-      backToTopButton.style.display = "none";
-    }
-  });
-
-  backToTopButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    // Rola suavemente para o topo da página
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  /**
+   * --- 3. BOTÃO VOLTAR AO TOPO ---
+   */
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 400 ? "block" : "none";
     });
-  });
+    backToTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /**
+   * --- 4. LÓGICA DOS CONTADORES ANIMADOS ---
+   */
+    const counters = document.querySelectorAll('.counter');
+    const speed = 2000;
+
+    const startCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText.replace('+', '');
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = "+" + target;
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Observer para disparar a animação apenas quando chegar na seção
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounters();
+                counterObserver.unobserve(entry.target); // Anima apenas uma vez
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const heroSection = document.querySelector('#hero');
+    if (heroSection) {
+        counterObserver.observe(heroSection);
+    }
 });
+

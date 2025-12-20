@@ -69,86 +69,107 @@ body {
 }
 
 #header {
-  background-color: #fafafa;
-  color: #4a4a4a;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1030;
+}
+[data-bs-theme=dark] #header {
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 #header .navbar-brand img {
-  height: 60px;
+  height: 45px;
   width: auto;
-  filter: none;
 }
 #header .nav-link {
   color: #4a4a4a;
   font-weight: 500;
+  padding: 0.5rem 1rem;
   transition: color 0.3s ease;
 }
 #header .nav-link:hover {
   color: #ff8c00;
 }
-#header #darkModeToggle {
-  color: #ff8c00;
-  border-color: #ff8c00;
-}
-[data-bs-theme=dark] #header #darkModeToggle {
-  background-color: #ff8c00;
+[data-bs-theme=dark] #header .nav-link {
   color: #fafafa;
-  border-color: #ff8c00;
+}
+#header .btn-contact-head {
+  border: 1px solid #ff8c00;
+  color: #ff8c00;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+#header .btn-contact-head:hover {
+  background-color: #ff8c00;
+  color: white;
+  transform: translateY(-2px);
 }
 
-#hero {
-  height: 100vh;
-  color: #fafafa;
-  background-image: url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  position: relative;
+#darkModeToggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  border: 1px solid rgba(255, 140, 0, 0.4);
+  color: #ff8c00;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-#hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: -1;
+#darkModeToggle #modeIcon {
+  font-size: 1.2rem;
+  transition: transform 0.5s ease;
 }
-[data-bs-theme=dark] #hero::before {
-  background-color: rgba(0, 0, 0, 0.8);
+#darkModeToggle:hover {
+  background-color: rgba(255, 140, 0, 0.1);
+  transform: rotate(15deg) scale(1.1);
 }
+[data-bs-theme=dark] #darkModeToggle {
+  color: #f1c40f;
+  border-color: rgba(241, 196, 15, 0.4);
+}
+[data-bs-theme=dark] #darkModeToggle:hover {
+  background-color: rgba(241, 196, 15, 0.1);
+}
+
 #hero {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg") center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-#hero .hero-content {
-  position: relative;
-  z-index: 5;
-  text-align: center;
+#hero .btn-budget-hero {
+  border: 1px solid #ff8c00;
+  color: #ff8c00;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
 }
-#hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-#hero .lead {
-  color: hsl(0, 0%, 103.0392156863%);
-}
-[data-bs-theme=dark] #hero .lead {
-  color: #fafafa;
-}
-#hero .btn-warning {
+#hero .btn-budget-hero:hover {
   background-color: #ff8c00;
-  border-color: #ff8c00;
-  color: #fafafa;
+  color: white;
+  transform: translateY(-2px);
 }
-#hero .btn-warning:hover {
-  background-color: #cc7000;
-  border-color: #cc7000;
+#hero .counter-box h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff8c00;
+  margin-bottom: 0;
+}
+#hero .counter-box span {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #fafafa;
 }
 
 #quem-somos {
@@ -199,6 +220,18 @@ body {
   background-color: #333;
   border-color: #555;
   color: #fafafa;
+}
+#servicos .btn-learn-more-servicos {
+  border: 1px solid #ff8c00;
+  color: #ff8c00;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+#servicos .btn-learn-more-servicos:hover {
+  background-color: #ff8c00;
+  color: white;
+  transform: translateY(-2px);
 }
 #servicos .card {
   border-radius: 8px;
@@ -286,10 +319,8 @@ body {
 }
 
 #contato {
-  color: #fafafa;
   padding-top: 4rem;
   padding-bottom: 4rem;
-  background-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -306,7 +337,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 [data-bs-theme=dark] #contato::before {
@@ -315,10 +345,22 @@ body {
 #contato .glasseffect {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.017);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.352);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+#contato .btn-budget-hero {
+  border: 1px solid #ff8c00;
+  color: #ff8c00;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+#contato .btn-budget-hero:hover {
+  background-color: #ff8c00;
+  color: white;
+  transform: translateY(-2px);
 }
 
 footer {

@@ -1,17 +1,13 @@
 @use "sass:color";
 @use "variables" as *;
 
-// 1. Definição da Imagem de Fundo
-$contato-bg-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
 
 #contato {
   // 1. Cor padrão do texto (Agora reconhece $color-text-light)
-  color: $color-text-light;
   padding-top: 4rem;
   padding-bottom: 4rem;
 
   // 2. Estilos da Imagem de Fundo
-  background-image: $contato-bg-image;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -30,7 +26,6 @@ $contato-bg-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(black, 0.4);
     z-index: -1;
 
     // Agora reconhece o mixin dark-mode
@@ -39,13 +34,27 @@ $contato-bg-image: url("../img/joe-woods-4Zaq5xY5M_c-unsplash.jpg");
     }
   }
 
-  // 3. Estilo Glassmorphism
+  // 4. Estilo Glassmorphism
   .glasseffect {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.017);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.352);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-budget-hero {
+    border: 1px solid $color-secondary;
+    color: $color-secondary;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-secondary;
+      color: white;
+      transform: translateY(-2px);
+    }
   }
 }

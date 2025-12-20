@@ -2,34 +2,82 @@
 @use "variables" as *;
 
 #header {
-  background-color: $color-primary-light; // Padrão Light Mode
-  color: $color-text-dark;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  // Efeito Glassmorphism
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1030;
+
+  @include dark-mode {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 
   .navbar-brand img {
-    height: 60px;
+    height: 45px;
     width: auto;
-    filter: none;
   }
 
   .nav-link {
     color: $default-text;
     font-weight: 500;
+    padding: 0.5rem 1rem;
     transition: color 0.3s ease;
 
-    &:hover {
-      color: $color-secondary;
-    }
+    &:hover { color: $color-secondary; }
+    
+    @include dark-mode { color: $color-text-light; }
   }
 
-  #darkModeToggle {
+  // 2. Botão Contatar Especial
+  .btn-contact-head {
+    border: 1px solid $color-secondary;
     color: $color-secondary;
-    border-color: $color-secondary;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
 
-    [data-bs-theme="dark"] & {
+    &:hover {
       background-color: $color-secondary;
-      color: $color-text-light;
-      border-color: $color-secondary;
+      color: white;
+      transform: translateY(-2px);
     }
   }
 }
+
+// 3. Estilo do Botão Dark Mode (Circular)
+  #darkModeToggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba($color-secondary, 0.4);
+    color: $color-secondary;
+    background: transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    #modeIcon {
+      font-size: 1.2rem;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover {
+      background-color: rgba($color-secondary, 0.1);
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    // Ajuste visual quando o site entra em modo dark
+    [data-bs-theme="dark"] & {
+      color: #f1c40f; // Amarelo para a Lua
+      border-color: rgba(#f1c40f, 0.4);
+      
+      &:hover {
+        background-color: rgba(#f1c40f, 0.1);
+      }
+    }
+  }

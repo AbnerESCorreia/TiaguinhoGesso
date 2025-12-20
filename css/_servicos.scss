@@ -10,12 +10,25 @@
     color: $color-text-light;
   }
 
+  .btn-learn-more-servicos {
+    border: 1px solid $color-secondary;
+    color: $color-secondary;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-secondary;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+
   .card {
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     @include dark-mode;
-
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
