@@ -122,59 +122,72 @@
             </div>
         </section>
         
-       <section id="servicos" class="py-5">
+        <section id="servicos" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-5">Nossos Serviços</h2>
                 <div class="row">
-                    
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow">
-                            <img src="img/drywalldivisoria.jpeg" class="card-img-top" alt="Serviço de construção de paredes e divisórias em Drywall.">
-                            
-                            <div class="card-body text-center">
-                                <h3 class="card-title">Drywall e Divisórias</h3>
-                                <p class="card-text">Construção rápida, limpa e eficiente de paredes, nichos e estantes, com excelente isolamento acústico e térmico.</p>
-                                
-                                <button type="button" class="btn btn-sm btn-learn-more-servicos" data-bs-toggle="modal" data-bs-target="#drywallModal">
+                    <div class="col-md-4 mb-4 h-50">
+                        <div class="card shadow card-servico">
+                            <img src="img/drywalldivisoria.jpeg" class="card-img-top" alt="Drywall">
+                            <div class="card-body-overlay">
+                                <h3 class="card-title typing-text" data-text="Drywall e Divisórias"></h3>
+                                <p class="card-text">Construção rápida, limpa e eficiente de paredes, nichos e estantes.</p>
+                                <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#drywallCollapse">
                                     Saiba Mais
                                 </button>
-                                
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow">
-                            <img src="img/forrogesso.jpeg" class="card-img-top" alt="Detalhe de forro de gesso liso e rebaixado com iluminação.">
-                            
-                            <div class="card-body text-center">
-                                <h3 class="card-title">Forros de Gesso</h3>
-                                <p class="card-text">Rebaixamento de tetos, instalação de forros lisos ou decorados para embutir iluminação e modernizar seu ambiente.</p>
-                                
-                                <button type="button" class="btn btn-sm btn-learn-more-servicos" data-bs-toggle="modal" data-bs-target="#forrosModal">
+                    <div class="col-md-4 mb-4 h-50">
+                        <div class="card shadow card-servico">
+                            <img src="img/forrogesso.jpeg" class="card-img-top" alt="Forros">
+                            <div class="card-body-overlay">
+                                <h3 class="card-title typing-text" data-text="Forros de Gesso"></h3>
+                                <p class="card-text">Rebaixamento de tetos e instalação de forros para embutir iluminação.</p>
+                                <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#forrosCollapse">
                                     Saiba Mais
                                 </button>
-                                
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 shadow">
-                            <img src="img/detalhesgesso.jpeg" class="card-img-top" alt="Sanca de gesso aberta com iluminação LED indireta.">
-                            
-                            <div class="card-body text-center">
-                                <h3 class="card-title">Sancas e Detalhes</h3>
-                                <p class="card-text">Criação de sancas abertas ou fechadas, nichos, molduras e painéis 3D que adicionam sofisticação e valor ao imóvel.</p>
-                                
-                                <button type="button" class="btn btn-sm btn-learn-more-servicos" data-bs-toggle="modal" data-bs-target="#sancasModal">
+                    <div class="col-md-4 mb-4 h-50">
+                        <div class="card shadow card-servico">
+                            <img src="img/detalhesgesso.jpeg" class="card-img-top" alt="Sancas">
+                            <div class="card-body-overlay">
+                                <h3 class="card-title typing-text" data-text="Sancas e Detalhes"></h3>
+                                <p class="card-text">Criação de sancas, molduras e painéis 3D sofisticados.</p>
+                                <button class="btn btn-sm btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#sancasCollapse">
                                     Saiba Mais
                                 </button>
-                                
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="mt-4">
+                    <div class="collapse multi-collapse mb-3" id="drywallCollapse">
+                        <div class="card card-body shadow-sm border-warning">
+                            <h5>Detalhes: Drywall e Divisórias</h5>
+                            <p>O Drywall é a solução moderna para quem busca flexibilidade. <strong>Vantagens:</strong> Instalação rápida, gera menos entulho e excelente isolamento acústico.</p>
+                            <a href="#contato" class="btn btn-sm btn-warning w-fit">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="collapse multi-collapse mb-3" id="forrosCollapse">
+                        <div class="card card-body shadow-sm border-warning">
+                            <h5>Detalhes: Forros de Gesso</h5>
+                            <p>Essenciais para acabamento perfeito. Permite embutir spots de LED e esconder vigas, deixando o teto liso e moderno.</p>
+                            <a href="#contato" class="btn btn-sm btn-warning w-fit">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="collapse multi-collapse mb-3" id="sancasCollapse">
+                        <div class="card card-body shadow-sm border-warning">
+                            <h5>Detalhes: Sancas e Decoração</h5>
+                            <p>Adicione luxo com sancas abertas para LED indireto ou painéis 3D que dão vida às suas paredes.</p>
+                            <a href="#contato" class="btn btn-sm btn-warning w-fit">Solicitar Orçamento</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
