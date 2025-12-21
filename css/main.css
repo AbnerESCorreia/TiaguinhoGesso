@@ -5,7 +5,7 @@ body {
   overflow-x: hidden;
 }
 [data-bs-theme=dark] body {
-  background-color: #1c1c1c;
+  background-color: #131212;
   color: #fafafa;
 }
 
@@ -117,7 +117,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 140, 0, 0.4);
+  border: 1px solid #ff8c00;
   color: #ff8c00;
   background: transparent;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -131,11 +131,15 @@ body {
   transform: rotate(15deg) scale(1.1);
 }
 [data-bs-theme=dark] #darkModeToggle {
-  color: #f1c40f;
-  border-color: rgba(241, 196, 15, 0.4);
+  border: 1px solid #ff8c00;
 }
 [data-bs-theme=dark] #darkModeToggle:hover {
-  background-color: rgba(241, 196, 15, 0.1);
+  border: 1px solid #ff8c00;
+}
+#darkModeToggle #menuIcon {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  text-align: center;
 }
 
 #hero {
@@ -173,8 +177,11 @@ body {
 }
 
 #quem-somos {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  background-color: #faf9f9;
+}
+[data-bs-theme=dark] #quem-somos {
+  background-color: #131212;
+  color: #fafafa;
 }
 #quem-somos .row {
   margin-top: 2rem;
@@ -213,12 +220,10 @@ body {
 }
 
 #servicos {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  transition: background-color 0.3s ease;
+  background-color: #f5f3f3;
 }
 [data-bs-theme=dark] #servicos {
-  background-color: #1a1a1a;
+  background-color: #151414;
   color: #fafafa;
 }
 #servicos .card-servico {
@@ -321,8 +326,11 @@ body {
 }
 
 #clientes {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  background-color: #faf9f9;
+}
+[data-bs-theme=dark] #clientes {
+  background-color: #131212;
+  color: #fafafa;
 }
 #clientes .carousel {
   max-width: 700px;
@@ -358,12 +366,10 @@ body {
 }
 
 #obras {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  background-color: #f5f3f3;
 }
 [data-bs-theme=dark] #obras {
-  background-color: #333;
-  border-color: #555;
+  background-color: #151414;
   color: #fafafa;
 }
 #obras .card {
@@ -414,7 +420,7 @@ body {
 }
 
 #main-footer {
-  background-color: #000 !important;
+  background-color: #4a4a4a;
   color: #fafafa;
   font-family: "Inter", sans-serif;
 }
@@ -459,25 +465,24 @@ body {
 }
 #main-footer .contact-buttons .contact-item {
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 14px 18px;
-  font-size: 0.9rem;
-  font-weight: 500;
   color: #fff;
-  border-radius: 4px;
+  border: 1px solid #c1bfbd;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
   background: transparent;
+  border-radius: 50px;
+  transition: all 0.3s ease;
 }
 #main-footer .contact-buttons .contact-item i {
   font-size: 1.1rem;
   color: #fff;
 }
 #main-footer .contact-buttons .contact-item:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  background-color: #ff8c00;
+  color: white;
+  transform: translateY(-2px);
 }
 #main-footer hr {
   opacity: 0.1;

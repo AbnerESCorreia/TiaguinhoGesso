@@ -27,9 +27,13 @@
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
 
-    &:hover { color: $color-secondary; }
-    
-    @include dark-mode { color: $color-text-light; }
+    &:hover {
+      color: $color-secondary;
+    }
+
+    @include dark-mode {
+      color: $color-text-light;
+    }
   }
 
   // 2. Botão Contatar Especial
@@ -49,35 +53,40 @@
 }
 
 // 3. Estilo do Botão Dark Mode (Circular)
-  #darkModeToggle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba($color-secondary, 0.4);
-    color: $color-secondary;
-    background: transparent;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+#darkModeToggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-secondary;
+  color: $color-secondary;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    #modeIcon {
-      font-size: 1.2rem;
-      transition: transform 0.5s ease;
-    }
+  #modeIcon {
+    font-size: 1.2rem;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover {
+    background-color: rgba($color-secondary, 0.1);
+    transform: rotate(15deg) scale(1.1);
+  }
+
+  // Ajuste visual quando o site entra em modo dark
+  [data-bs-theme="dark"] & {
+    border: 1px solid $color-secondary;
 
     &:hover {
-      background-color: rgba($color-secondary, 0.1);
-      transform: rotate(15deg) scale(1.1);
-    }
-
-    // Ajuste visual quando o site entra em modo dark
-    [data-bs-theme="dark"] & {
-      color: #f1c40f; // Amarelo para a Lua
-      border-color: rgba(#f1c40f, 0.4);
-      
-      &:hover {
-        background-color: rgba(#f1c40f, 0.1);
-      }
+      border: 1px solid $color-secondary;
     }
   }
+
+  #menuIcon {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    text-align: center;
+  }
+}

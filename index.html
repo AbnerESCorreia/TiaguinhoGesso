@@ -34,23 +34,31 @@
       </a>
     </div>
 
-    <header id="header" class="sticky-top shadow-sm py-3 px-3 glasseffect">
+    <header id="header" class="sticky-top shadow-sm py-2 px-3 glasseffect">
       <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
+        >
+          <a class="navbar-brand m-0" href="#">
+            <img src="img/LogoHeaderTG.png" alt="Logo" />
+          </a>
+
           <button
-            class="navbar-toggler"
+            class="navbar-toggler border-0 shadow-none"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            id="navbarToggler"
           >
-            <span class="navbar-toggler-icon"></span>
+            <div class="hamburger-icon">
+              <i class="bi bi-three-dots-vertical" id="menuIcon"></i>
+            </div>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarNav">
-            <a class="navbar-brand m-0" href="#">
-              <img src="img/LogoHeaderTG.png" alt="Logo" />
-            </a>
-
             <ul class="navbar-nav mx-auto align-items-lg-center fw-normal">
               <li class="nav-item">
                 <a class="nav-link" href="#hero">Início</a>
@@ -72,18 +80,18 @@
               </li>
             </ul>
 
-            <ul class="navbar-nav m-0 align-items-center nav-item d-flex gap-2">
+            <ul
+              class="navbar-nav m-0 align-items-center d-flex flex-row gap-2 justify-content-center mt-3 mt-lg-0"
+            >
               <li class="nav-item">
                 <button class="btn btn-sm btn-contact-head py-2 px-3">
                   Contatar
                 </button>
               </li>
-
-              <li class="nav-item m-0">
+              <li class="nav-item">
                 <button
-                  class="btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center"
+                  class="btn btn-sm btn-outline-secondary"
                   id="darkModeToggle"
-                  aria-label="Alternar tema"
                 >
                   <i class="bi bi-sun-fill" id="modeIcon"></i>
                 </button>
@@ -374,17 +382,17 @@
         <div class="container">
           <h2 class="text-center mb-5">Nossas Obras Realizadas</h2>
 
-          <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+          <div class="row row-cols-2 row-cols-md-3 g-3 g-md-4">
             <div class="col">
               <a
                 href="https://www.instagram.com/p/DHrkipNSowr/?igsh=MXc2Mjd3azI0cHFqag=="
                 target="_blank"
                 class="work-link"
               >
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm border-0">
                   <img
                     src="img/ObrasObra1.jpeg"
-                    class="card-img-top"
+                    class="card-img-top rounded"
                     alt="Obra de Gesso 1"
                   />
                 </div>
@@ -397,10 +405,10 @@
                 target="_blank"
                 class="work-link"
               >
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm border-0">
                   <img
                     src="img/ObrasObra2.jpeg"
-                    class="card-img-top"
+                    class="card-img-top rounded"
                     alt="Obra de Gesso 2"
                   />
                 </div>
@@ -413,28 +421,26 @@
                 target="_blank"
                 class="work-link"
               >
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm border-0">
                   <img
                     src="img/ObrasObra3.jpeg"
-                    class="card-img-top"
+                    class="card-img-top rounded"
                     alt="Obra de Gesso 3"
                   />
                 </div>
               </a>
             </div>
-          </div>
 
-          <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
               <a
                 href="SUA_URL_DA_OBRA_4_NO_INSTAGRAM"
                 target="_blank"
                 class="work-link"
               >
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm border-0">
                   <img
                     src="img/ObrasObra4.jpeg"
-                    class="card-img-top"
+                    class="card-img-top rounded"
                     alt="Obra de Gesso 4"
                   />
                 </div>
@@ -447,10 +453,10 @@
                 target="_blank"
                 class="work-link"
               >
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm border-0">
                   <img
                     src="img/ObrasObra5.jpeg"
-                    class="card-img-top"
+                    class="card-img-top rounded"
                     alt="Obra de Gesso 5"
                   />
                 </div>
@@ -463,10 +469,10 @@
                 target="_blank"
                 class="work-link"
               >
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm border-0">
                   <img
                     src="img/ObrasObra6.jpeg"
-                    class="card-img-top"
+                    class="card-img-top rounded"
                     alt="Obra de Gesso 6"
                   />
                 </div>
@@ -500,25 +506,32 @@
                 ><i class="bi bi-instagram"></i
               ></a>
               <a href="mailto:tiagonewgesso@hotmail.com" class="social-btn"
-                ><i class="bi bi-envelope"></i
+                ><i class="bi bi-send"></i
               ></a>
             </div>
           </div>
           <div class="col-lg-4 mb-4 ps-lg-5">
-            <h5 class="footer-title mb-4">Acesso Rápido</h5>
-            <ul class="list-unstyled footer-links">
-              <li><a href="#hero">Início</a></li>
-              <li><a href="#servicos">Nossos Serviços</a></li>
-              <li><a href="#clientes">Depoimentos</a></li>
-              <li><a href="#portfolio">Portfólio</a></li>
-            </ul>
+            <h5 class="footer-title mb-4">Nossa Localização</h5>
+            <div class="map-container-footer shadow-sm rounded overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.662241680374!2d-45.9602058!3d-20.9660517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b466184857b6f3%3A0xc0702d0910f3c0f2!2sR.%20Francisco%20Camarano%2C%20515%20-%20Piumhi%2C%20MG%2C%2037925-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+            <p class="small text-secondary mt-3">
+              <i class="bi bi-geo-alt-fill text-primary me-1"></i>
+              R. Francisco Camarano, 515, Piumhi - MG
+            </p>
           </div>
 
           <div class="col-lg-4 mb-4">
             <h5 class="footer-title mb-4">Entre em contato conosco</h5>
-            <p class="small text-secondary mb-4">
-              Estamos preparados para realizar seu sonho e superar expectativas.
-            </p>
 
             <div class="d-grid gap-2 contact-buttons">
               <a
@@ -528,16 +541,16 @@
                 <i class="bi bi-whatsapp me-2"></i> (37) 9957-8983
               </a>
               <a
-                href="mailto:tiagonewgesso@hotmail.com"
-                class="btn btn-outline-light contact-item"
-              >
-                <i class="bi bi-envelope me-2"></i> tiagonewgesso@hotmail.com
-              </a>
-              <a
                 href="https://instagram.com/tiaguinhogesso"
                 class="btn btn-outline-light contact-item"
               >
                 <i class="bi bi-instagram me-2"></i> @tiaguinhogesso
+              </a>
+              <a
+                href="mailto:tiagonewgesso@hotmail.com"
+                class="btn btn-outline-light contact-item"
+              >
+                <i class="bi bi-send me-2"></i> tiagonewgesso@hotmail.com
               </a>
             </div>
           </div>
@@ -568,197 +581,5 @@
     >
       <i class="bi bi-arrow-up"></i>
     </a>
-
-    <div
-      class="modal fade"
-      id="drywallModal"
-      tabindex="-1"
-      aria-labelledby="drywallModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="drywallModalLabel">
-              Detalhes: Drywall e Divisórias
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <div class="modal-body text-start">
-            <p>
-              O Drywall (parede seca) é a solução moderna para quem busca
-              flexibilidade e agilidade na obra.
-            </p>
-            <p class="lead fw-bold text-warning">Principais Vantagens:</p>
-            <ul>
-              <li>
-                Instalação Rápida: Reduz o tempo de construção em até 50%.
-              </li>
-              <li>
-                Limpeza: Gera menos entulho e sujeira comparado à alvenaria
-                tradicional.
-              </li>
-              <li>Desempenho: Oferece excelente isolamento termoacústico.</li>
-              <li>
-                Versatilidade: Perfeito para nichos, estantes embutidas e
-                paredes curvas.
-              </li>
-            </ul>
-            <p class="mt-4">
-              Pronto para transformar seu espaço? Clique no botão abaixo e
-              solicite um orçamento detalhado!
-            </p>
-          </div>
-
-          <div class="modal-footer justify-content-center">
-            <a href="#contato" class="btn btn-warning" data-bs-dismiss="modal"
-              >Solicitar Orçamento Agora</a
-            >
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Fechar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="modal fade"
-      id="forrosModal"
-      tabindex="-1"
-      aria-labelledby="forrosModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="forrosModalLabel">
-              Detalhes: Forros de Gesso
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <div class="modal-body text-start">
-            <p>
-              Os forros de gesso são essenciais para um acabamento perfeito,
-              permitindo o rebaixamento de tetos e a correção de imperfeições.
-            </p>
-            <p class="lead fw-bold text-warning">Principais Vantagens:</p>
-            <ul>
-              <li>
-                Embutir Iluminação: Perfeito para a instalação de spots, trilhos
-                e iluminação indireta.
-              </li>
-              <li>
-                Isolamento: Melhora o isolamento térmico e acústico do ambiente.
-              </li>
-              <li>
-                Estética: Cobre vigas e tubulações, deixando o teto totalmente
-                liso e moderno.
-              </li>
-              <li>
-                Opções: Trabalhamos com forro fixo (plaquinhas) ou acartonado
-                (Drywall).
-              </li>
-            </ul>
-            <p class="mt-4">
-              Vamos planejar o teto perfeito para você? Solicite seu orçamento
-              sem compromisso!
-            </p>
-          </div>
-
-          <div class="modal-footer justify-content-center">
-            <a href="#contato" class="btn btn-warning" data-bs-dismiss="modal"
-              >Solicitar Orçamento Agora</a
-            >
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Fechar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="modal fade"
-      id="sancasModal"
-      tabindex="-1"
-      aria-labelledby="sancasModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="sancasModalLabel">
-              Detalhes: Sancas e Decoração
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-
-          <div class="modal-body text-start">
-            <p>
-              As sancas e os detalhes decorativos em gesso transformam a
-              iluminação e adicionam um toque de luxo e sofisticação.
-            </p>
-            <p class="lead fw-bold text-warning">Nossas Especialidades:</p>
-            <ul>
-              <li>
-                Sancas Abertas: Ideal para iluminação indireta (LED), dando a
-                sensação de teto flutuante.
-              </li>
-              <li>
-                Sancas Fechadas: Para um acabamento limpo, com spots embutidos.
-              </li>
-              <li>
-                Molduras e Rodatetos: Detalhes clássicos que delimitam o teto e
-                a parede.
-              </li>
-              <li>
-                Painéis 3D: Criação de relevos e texturas decorativas na parede.
-              </li>
-            </ul>
-            <p class="mt-4">
-              Adicione sofisticação ao seu projeto! Fale conosco para conhecer
-              os modelos!
-            </p>
-          </div>
-
-          <div class="modal-footer justify-content-center">
-            <a href="#contato" class="btn btn-warning" data-bs-dismiss="modal"
-              >Solicitar Orçamento Agora</a
-            >
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Fechar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

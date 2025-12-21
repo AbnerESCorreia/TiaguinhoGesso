@@ -2,12 +2,10 @@
 @use "variables" as *;
 
 #servicos {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  transition: background-color 0.3s ease;
+  background-color: $color-background-light-secondary;
 
   @include dark-mode {
-    background-color: #1a1a1a; // Um tom mais escuro que o #333 para melhor contraste
+    background-color: $color-background-dark-secondary;
     color: $color-text-light;
   }
 
@@ -77,9 +75,9 @@
       }
     }
   }
-  
+
   // Estilo do Orçamento (dentro do card)
-    .btn-budget-hero {
+  .btn-budget-hero {
     border: 1px solid $color-secondary;
     color: $color-secondary;
     font-weight: 600;

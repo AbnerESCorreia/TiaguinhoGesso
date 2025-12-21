@@ -2,9 +2,9 @@
 @use "variables" as *;
 
 #main-footer {
-  background-color: #000 !important; // Preto sólido para elegância
+  background-color: $color-text-dark;
   color: $color-text-light;
-  font-family: 'Inter', sans-serif; // Ou a fonte que você estiver usando
+  font-family: "Inter", sans-serif; // Ou a fonte que você estiver usando
 
   .footer-title {
     font-weight: 700;
@@ -61,16 +61,15 @@
   .contact-buttons {
     .contact-item {
       text-align: left;
-      border: 1px solid rgba(255, 255, 255, 0.1); // Borda fina e discreta
       padding: 14px 18px;
-      font-size: 0.9rem;
-      font-weight: 500;
       color: #fff;
-      border-radius: 4px;
+      border: 1px solid $color-tertiary;
       display: flex;
       align-items: center;
       transition: all 0.3s ease;
       background: transparent;
+      border-radius: 50px;
+      transition: all 0.3s ease;
 
       i {
         font-size: 1.1rem;
@@ -78,9 +77,9 @@
       }
 
       &:hover {
-        border-color: rgba(255, 255, 255, 0.4);
-        background-color: rgba(255, 255, 255, 0.05);
-        color: #fff;
+        background-color: $color-secondary;
+        color: white;
+        transform: translateY(-2px);
       }
     }
   }
@@ -92,7 +91,7 @@
 
   .text-secondary {
     color: rgba(255, 255, 255, 0.5) !important;
-    
+
     strong {
       color: #fff;
     }

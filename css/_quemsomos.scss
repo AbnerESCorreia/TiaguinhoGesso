@@ -2,8 +2,12 @@
 @use "variables" as *; // Adicionado 'as *' para reconhecer as variáveis diretamente
 
 #quem-somos {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  background-color: $color-background-light-primary;
+
+  @include dark-mode {
+    background-color: $color-background-dark-primary;
+    color: $color-text-light;
+  }
 
   .row {
     margin-top: 2rem;

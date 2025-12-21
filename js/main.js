@@ -1,158 +1,188 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
-    // ==========================================
-    // 1. TEMA (DARK MODE)
-    // ==========================================
-    const toggleButton = document.getElementById("darkModeToggle");
-    const htmlElement = document.documentElement;
-    const modeIcon = document.getElementById("modeIcon");
+  // ==========================================
+  // 1. TEMA (DARK MODE)
+  // ==========================================
+  const toggleButton = document.getElementById("darkModeToggle");
+  const htmlElement = document.documentElement;
+  const modeIcon = document.getElementById("modeIcon");
 
-    function setMode(mode) {
-        if (mode === "dark") {
-            htmlElement.setAttribute("data-bs-theme", "dark");
-            localStorage.setItem("theme", "dark");
-            if (modeIcon) {
-                modeIcon.classList.remove("bi-sun-fill");
-                modeIcon.classList.add("bi-moon-stars-fill");
-                modeIcon.style.transform = "rotate(360deg)";
-            }
-        } else {
-            htmlElement.setAttribute("data-bs-theme", "light");
-            localStorage.setItem("theme", "light");
-            if (modeIcon) {
-                modeIcon.classList.remove("bi-moon-stars-fill");
-                modeIcon.classList.add("bi-sun-fill");
-                modeIcon.style.transform = "rotate(0deg)";
-            }
-        }
-    }
-
-    // Inicialização do Tema
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-        setMode(savedTheme);
+  function setMode(mode) {
+    if (mode === "dark") {
+      htmlElement.setAttribute("data-bs-theme", "dark");
+      localStorage.setItem("theme", "dark");
+      if (modeIcon) {
+        modeIcon.classList.remove("bi-sun-fill");
+        modeIcon.classList.add("bi-moon-stars-fill");
+        modeIcon.style.transform = "rotate(360deg)";
+      }
     } else {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setMode(prefersDark ? "dark" : "light");
+      htmlElement.setAttribute("data-bs-theme", "light");
+      localStorage.setItem("theme", "light");
+      if (modeIcon) {
+        modeIcon.classList.remove("bi-moon-stars-fill");
+        modeIcon.classList.add("bi-sun-fill");
+        modeIcon.style.transform = "rotate(0deg)";
+      }
     }
+  }
 
-    if (toggleButton) {
-        toggleButton.addEventListener("click", () => {
-            const currentTheme = htmlElement.getAttribute("data-bs-theme");
-            setMode(currentTheme === "light" ? "dark" : "light");
-        });
-    }
+  // Inicialização do Tema
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    setMode(savedTheme);
+  } else {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setMode(prefersDark ? "dark" : "light");
+  }
 
-    // ==========================================
-    // 2. ANIMAÇÕES DE SURGIMENTO AO ROLAR (SCROLL)
-    // ==========================================
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-animated");
-            }
-        });
-    }, { threshold: 0.15 });
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      const currentTheme = htmlElement.getAttribute("data-bs-theme");
+      setMode(currentTheme === "light" ? "dark" : "light");
+    });
+  }
 
-    document.querySelectorAll(".animate-on-scroll").forEach((el) => scrollObserver.observe(el));
+  // ==========================================
+  // 2. ANIMAÇÕES DE SURGIMENTO AO ROLAR (SCROLL)
+  // ==========================================
+  const scrollObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-animated");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-    // ==========================================
-    // 3. CONTADORES NUMÉRICOS (HERO)
-    // ==========================================
-    const counters = document.querySelectorAll('.counter');
-    const counterSpeed = 2000;
+  document
+    .querySelectorAll(".animate-on-scroll")
+    .forEach((el) => scrollObserver.observe(el));
 
-    const startCounters = () => {
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText.replace('+', '');
-                const inc = target / (counterSpeed / 15); // Ajuste fino da fluidez
+  // ==========================================
+  // 3. CONTADORES NUMÉRICOS (HERO)
+  // ==========================================
+  const counters = document.querySelectorAll(".counter");
+  const counterSpeed = 2000;
 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 15);
-                } else {
-                    counter.innerText = "+" + target;
-                }
-            };
-            updateCount();
-        });
-    };
+  const startCounters = () => {
+    counters.forEach((counter) => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText.replace("+", "");
+        const inc = target / (counterSpeed / 15); // Ajuste fino da fluidez
 
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                startCounters();
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
+        if (count < target) {
+          counter.innerText = Math.ceil(count + inc);
+          setTimeout(updateCount, 15);
+        } else {
+          counter.innerText = "+" + target;
+        }
+      };
+      updateCount();
+    });
+  };
 
-    const heroSection = document.querySelector('#hero');
-    if (heroSection) counterObserver.observe(heroSection);
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startCounters();
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
 
-   
-    // ==========================================
-    // 4. ANIMAÇÃO DE DIGITAÇÃO (SERVIÇOS) - VERSÃO ESTÁVEL
-    // ==========================================
-    document.querySelectorAll('.card-servico').forEach(card => {
-        let typingInterval; // Variável para armazenar o intervalo atual deste card
+  const heroSection = document.querySelector("#hero");
+  if (heroSection) counterObserver.observe(heroSection);
 
-        card.addEventListener('mouseenter', function() {
-            const titleElement = this.querySelector('.typing-text');
-            const fullText = titleElement.getAttribute('data-text');
-            
-            // Limpa qualquer intervalo que ainda esteja rodando para evitar duplicação
-            clearInterval(typingInterval);
-            
-            // Reseta o texto antes de começar
-            titleElement.innerText = "";
-            
-            let i = 0;
-            typingInterval = setInterval(() => {
-                if (i < fullText.length) {
-                    titleElement.innerText += fullText.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(typingInterval);
-                }
-            }, 50); // Velocidade levemente mais rápida para ser mais fluido
-        });
+  // ==========================================
+  // 4. ANIMAÇÃO DE DIGITAÇÃO (SERVIÇOS) - VERSÃO ESTÁVEL
+  // ==========================================
+  document.querySelectorAll(".card-servico").forEach((card) => {
+    let typingInterval; // Variável para armazenar o intervalo atual deste card
 
-        card.addEventListener('mouseleave', function() {
-            // Ao sair, cancela a animação e limpa o texto
-            clearInterval(typingInterval);
-            this.querySelector('.typing-text').innerText = "";
-        });
+    card.addEventListener("mouseenter", function () {
+      const titleElement = this.querySelector(".typing-text");
+      const fullText = titleElement.getAttribute("data-text");
+
+      // Limpa qualquer intervalo que ainda esteja rodando para evitar duplicação
+      clearInterval(typingInterval);
+
+      // Reseta o texto antes de começar
+      titleElement.innerText = "";
+
+      let i = 0;
+      typingInterval = setInterval(() => {
+        if (i < fullText.length) {
+          titleElement.innerText += fullText.charAt(i);
+          i++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 50); // Velocidade levemente mais rápida para ser mais fluido
     });
 
-    // ==========================================
-    // 5. LÓGICA DE COLLAPSE (FECHAR ANTERIOR)
-    // ==========================================
-    const collapses = document.querySelectorAll('.multi-collapse');
-    collapses.forEach(collapse => {
-        collapse.addEventListener('show.bs.collapse', () => {
-            collapses.forEach(other => {
-                if (other !== collapse) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(other);
-                    if (bsCollapse) bsCollapse.hide();
-                }
-            });
-        });
+    card.addEventListener("mouseleave", function () {
+      // Ao sair, cancela a animação e limpa o texto
+      clearInterval(typingInterval);
+      this.querySelector(".typing-text").innerText = "";
+    });
+  });
+
+  // ==========================================
+  // 5. LÓGICA DE COLLAPSE (FECHAR ANTERIOR)
+  // ==========================================
+  const collapses = document.querySelectorAll(".multi-collapse");
+  collapses.forEach((collapse) => {
+    collapse.addEventListener("show.bs.collapse", () => {
+      collapses.forEach((other) => {
+        if (other !== collapse) {
+          const bsCollapse = bootstrap.Collapse.getInstance(other);
+          if (bsCollapse) bsCollapse.hide();
+        }
+      });
+    });
+  });
+
+  // ==========================================
+  // 6. BOTÃO VOLTAR AO TOPO
+  // ==========================================
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // ==========================================
+  // 7. TROCA DE ÍCONE DO MENU (Vertical dots -> X)
+  // ==========================================
+  const menuIcon = document.getElementById("menuIcon");
+  const navbarCollapse = document.getElementById("navbarNav");
+
+  if (menuIcon && navbarCollapse) {
+    // Quando o menu começa a abrir
+    navbarCollapse.addEventListener("show.bs.collapse", function () {
+      menuIcon.classList.remove("bi-three-dots-vertical");
+      menuIcon.classList.add("bi-x");
+      menuIcon.style.transform = "rotate(90deg)"; // Pequeno efeito visual de rotação
     });
 
-    // ==========================================
-    // 6. BOTÃO VOLTAR AO TOPO
-    // ==========================================
-    const backToTop = document.getElementById("backToTop");
-    if (backToTop) {
-        window.addEventListener("scroll", () => {
-            backToTop.style.display = window.scrollY > 400 ? "block" : "none";
-        });
-        backToTop.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    }
+    // Quando o menu começa a fechar
+    navbarCollapse.addEventListener("hide.bs.collapse", function () {
+      menuIcon.classList.remove("bi-x");
+      menuIcon.classList.add("bi-three-dots-vertical");
+      menuIcon.style.transform = "rotate(0deg)";
+    });
+  }
 });

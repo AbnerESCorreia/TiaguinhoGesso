@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 
   @include dark-mode {
-    background-color: $color-background-dark;
+    background-color: $color-background-dark-primary;
     color: $color-text-light;
   }
 }
