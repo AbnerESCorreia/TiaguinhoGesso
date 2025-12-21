@@ -77,21 +77,34 @@
       }
     }
   }
-
-  // Estilo do Botão Saiba Mais (dentro do card)
-  .btn-learn-more-servicos {
-    border: 2px solid $color-secondary;
-    color: #fff; // Texto branco sobre o overlay escuro
-    background: transparent;
+  
+  // Estilo do Orçamento (dentro do card)
+    .btn-budget-hero {
+    border: 1px solid $color-secondary;
+    color: $color-secondary;
     font-weight: 600;
     border-radius: 50px;
-    padding: 0.5rem 1.5rem;
     transition: all 0.3s ease;
 
     &:hover {
       background-color: $color-secondary;
       color: white;
-      transform: scale(1.05);
+      transform: translateY(-2px);
+    }
+  }
+
+  // Estilo do Botão Saiba Mais (dentro do card)
+  .btn-learn-more-servicos {
+    border: 1px solid $color-tertiary;
+    color: $color-tertiary;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-tertiary;
+      color: white;
+      transform: translateY(-2px);
     }
   }
 

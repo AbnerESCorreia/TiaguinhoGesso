@@ -275,19 +275,29 @@ body {
 #servicos .card-servico:hover .card-body-overlay {
   left: 0;
 }
-#servicos .btn-learn-more-servicos {
-  border: 2px solid #ff8c00;
-  color: #fff;
-  background: transparent;
+#servicos .btn-budget-hero {
+  border: 1px solid #ff8c00;
+  color: #ff8c00;
   font-weight: 600;
   border-radius: 50px;
-  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+#servicos .btn-budget-hero:hover {
+  background-color: #ff8c00;
+  color: white;
+  transform: translateY(-2px);
+}
+#servicos .btn-learn-more-servicos {
+  border: 1px solid #c1bfbd;
+  color: #c1bfbd;
+  font-weight: 600;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 #servicos .btn-learn-more-servicos:hover {
-  background-color: #ff8c00;
+  background-color: #c1bfbd;
   color: white;
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 #servicos .multi-collapse .card-body {
   background-color: #f8f9fa;
