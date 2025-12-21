@@ -37,7 +37,7 @@
                         <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
                         <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#obras">Obras</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#main-footer">Contato</a></li>
                     </ul>
 
                    <ul class="navbar-nav m-0 align-items-center nav-item d-flex gap-2">
@@ -283,69 +283,60 @@
             </div>
         </section>
 
-        <section id="contato" class="py-5">
-            <div class="container">
-                    <h2 class="text-center mb-4">Entre em Contato</h2>
-                    <p class="text-center mb-5 lead">Preencha o formulário abaixo e solicite um orçamento sem compromisso. Atendemos de **7:00 às 17:00**.</p>
-                    
-                    <div class="row justify-content-center">
-                        
-                        <div class="col-lg-5 mb-4 mb-lg-0 ">
-                            <div class="glasseffect p-4 h-100"> 
-                                <h3 class="card-title text-center mb-4">Envie sua Mensagem</h3>
-                                <form action="SEU_SCRIPT_DE_ENVIO" method="POST" class="needs-validation" novalidate>
-                                    <div class="mb-3">
-                                        <label for="nome" class="form-label">Nome Completo</label>
-                                        <input type="text" class="form-control" id="nome" name="nome" required>
-                                        <div class="invalid-feedback">Por favor, insira seu nome.</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                        <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="telefone" class="form-label">Telefone (WhatsApp)</label>
-                                        <input type="tel" class="form-control" id="telefone" name="telefone" required>
-                                        <div class="invalid-feedback">Por favor, insira seu telefone.</div>
-                                    </div>
-                                    <div class="mb-5">
-                                        <label for="mensagem" class="form-label">Detalhes do Orçamento</label>
-                                        <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
-                                        <div class="invalid-feedback">Por favor, descreva seu orçamento.</div>
-                                    </div>
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-budget-hero btn-sm">Enviar Orçamento</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-7">
-                            <div class="card">
-                                <div class="map-container shadow-lg rounded-3">
-                                <iframe 
-                                        src="https://maps.google.com/maps?q=Rua Francisco Camarano, 515, Piumhi, MG&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                                        width="100%" 
-                                        height="550px" 
-                                        style="border:0;" 
-                                        allowfullscreen="" 
-                                        loading="lazy" 
-                                        referrerpolicy="no-referrer-when-downgrade"
-                                    ></iframe>
-                                </div>
-                                <p class="text-center mt-3 ">R. Francisco Camarano, 515, Piumhi - MG, 37925-000</p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="bg-dark text-white py-3">
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2025 Tiaguinho Gesso. Todos os direitos reservados.</p>
-            <small class="d-block mt-1">Desenvolvido com <i class="bi bi-code-slash"></i> e Bootstrap.</small>
+    <footer id="main-footer" class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="img/LogoFooter.png" alt="Tiaguinho Gesso" class="mb-3" style="height: 50px;">
+                    <p class="small text-secondary">
+                        © 2025 Tiaguinho Gesso. Todos os direitos reservados. A reprodução, distribuição ou modificação de qualquer parte deste site sem autorização é estritamente proibida.
+                    </p>
+                    <div class="social-icons d-flex gap-2">
+                        <a href="https://wa.me/553799578983" class="social-btn"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://instagram.com/tiaguinhogesso" class="social-btn"><i class="bi bi-instagram"></i></a>
+                        <a href="mailto:tiagonewgesso@hotmail.com" class="social-btn"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+                <div>
+<p>a</p>
+                </div>
+
+                <div class="col-lg-4 mb-4 ps-lg-5">
+                    <h5 class="footer-title mb-4">Acesso Rápido</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#servicos">Nossos Serviços</a></li>
+                        <li><a href="#clientes">Depoimentos</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title mb-4">Entre em contato conosco</h5>
+                    <p class="small text-secondary mb-4">Estamos preparados para realizar seu sonho e superar expectativas.</p>
+                    
+                    <div class="d-grid gap-2 contact-buttons">
+                        <a href="https://wa.me/553799578983" class="btn btn-outline-light contact-item">
+                            <i class="bi bi-whatsapp me-2"></i> (37) 9957-8983
+                        </a>
+                        <a href="mailto:tiagonewgesso@hotmail.com" class="btn btn-outline-light contact-item">
+                            <i class="bi bi-envelope me-2"></i> tiagonewgesso@hotmail.com
+                        </a>
+                        <a href="https://instagram.com/tiaguinhogesso" class="btn btn-outline-light contact-item">
+                            <i class="bi bi-instagram me-2"></i> @tiaguinhogesso
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+            
+            <div class="text-center">
+                <small class="text-secondary">&copy; 2025 Tiaguinho Gesso. Todos os direitos reservados.</p>
+            <small class="d-block mt-1">Desenvolvido com <i class="bi bi-code-slash"></i> e Bootstrap.</small></small>
+            </div>
         </div>
     </footer>
 

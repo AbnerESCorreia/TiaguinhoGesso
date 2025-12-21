@@ -3,37 +3,6 @@
 
 
 #contato {
-  // 1. Cor padrão do texto (Agora reconhece $color-text-light)
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-
-  // 2. Estilos da Imagem de Fundo
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-
-  // 3. Sobreposição de cor (Overlay)
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-
-    // Agora reconhece o mixin dark-mode
-    @include dark-mode {
-      background-color: rgba(black, 0.8);
-    }
-  }
-
   // 4. Estilo Glassmorphism
   .glasseffect {
     background: rgba(255, 255, 255, 0.05);
