@@ -3,53 +3,35 @@
 
 #quem-somos {
   background-color: $color-background-light-primary;
+  overflow-x: hidden;
 
   @include dark-mode {
     background-color: $color-background-dark-primary;
-    color: $color-text-light;
-  }
-
-  .row {
-    margin-top: 2rem;
   }
 
   h3 {
     color: $color-secondary;
-    font-weight: 600;
     margin-top: 1rem;
   }
 
-  i {
-    font-size: 3rem;
-  }
-
-  .lead {
-    color: $default-text;
-
-    @include dark-mode {
-      color: color.adjust($color-text-light, $lightness: 5%);
-    }
-  }
-
-  // Estilos para as animações
   .animate-on-scroll {
     opacity: 0;
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-    transform: translateY(0);
+    transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 2s ease-out;
   }
 
+  // Valores reduzidos para não sumir no mobile
   .slide-in-left {
-    transform: translateX(-100%);
+    transform: translateX(-50px);
   }
   .slide-in-right {
-    transform: translateX(100%);
+    transform: translateX(50px);
   }
   .slide-in-bottom {
-    transform: translateY(100%);
+    transform: translateY(50px);
   }
 
   .is-animated {
     opacity: 1;
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0) !important;
   }
 }

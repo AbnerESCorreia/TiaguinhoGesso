@@ -1,12 +1,19 @@
 @use "variables" as *;
 
 #hero {
-  min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../img/kelly-sikkema-xFo2IH8UxG8-unsplash.jpg") center/cover;
+  min-height: 85vh;
+  position: relative;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); // Escurece as fotos para o texto aparecer
+    z-index: 2;
+  }
 
   .btn-budget-hero {
     border: 1px solid $color-secondary;
@@ -22,19 +29,51 @@
     }
   }
 
+  #heroCarousel {
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .hero-slide-img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+
+      // Defina suas imagens aqui
+      &.img-1 {
+        background-image: url("../img/detalhesgesso.jpeg");
+      }
+      &.img-2 {
+        background-image: url("../img/drywalldivisoria.jpeg");
+      }
+      &.img-3 {
+        background-image: url("../img/Tiaguinho2.jpeg");
+      }
+      &.img-4 {
+        background-image: url("../img/Tiaguinho3.jpeg");
+      }
+      &.img-5 {
+        background-image: url("../img/Tiaguinho4.jpeg");
+      }
+      &.img-6 {
+        background-image: url("../img/Tiaguinho5.jpeg");
+      }
+      &.img-7 {
+        background-image: url("../img/Tiaguinho6.jpeg");
+      }
+    }
+  }
+
   .counter-box {
     h2 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 4rem; // Mantendo o tamanho grande que você pediu
+      font-weight: 500;
       color: $color-secondary;
-      margin-bottom: 0;
     }
     span {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 500;
-      color: $color-text-light;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
   }
 }

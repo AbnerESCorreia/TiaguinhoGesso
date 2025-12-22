@@ -84,9 +84,12 @@
               class="navbar-nav m-0 align-items-center d-flex flex-row gap-2 justify-content-center mt-3 mt-lg-0"
             >
               <li class="nav-item">
-                <button class="btn btn-sm btn-contact-head py-2 px-3">
+                <a
+                  href="https://wa.me/553799578983"
+                  class="btn btn-sm btn-contact-head py-2 px-3"
+                >
                   Contatar
-                </button>
+                </a>
               </li>
               <li class="nav-item">
                 <button
@@ -103,8 +106,43 @@
     </header>
 
     <main>
-      <section id="hero" class="text-center d-flex align-items-center">
-        <div class="container">
+      <section
+        id="hero"
+        class="text-center d-flex align-items-center position-relative overflow-hidden"
+      >
+        <div
+          id="heroCarousel"
+          class="carousel slide carousel-fade position-absolute w-100 h-100"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+              <div class="hero-slide-img img-1"></div>
+            </div>
+            <div class="carousel-item h-100">
+              <div class="hero-slide-img img-2"></div>
+            </div>
+            <div class="carousel-item h-100">
+              <div class="hero-slide-img img-3"></div>
+            </div>
+            <div class="carousel-item h-100">
+              <div class="hero-slide-img img-4"></div>
+            </div>
+            <div class="carousel-item h-100">
+              <div class="hero-slide-img img-5"></div>
+            </div>
+            <div class="carousel-item h-100">
+              <div class="hero-slide-img img-6"></div>
+            </div>
+            <div class="carousel-item h-100">
+              <div class="hero-slide-img img-7"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="container position-relative" style="z-index: 5">
           <div class="hero-content mb-5">
             <h1 class="display-4 fw-bold">
               Transforme seu Espaço com Tiaguinho Gesso
@@ -112,12 +150,9 @@
             <p class="lead mb-4">
               Especialista em Drywall, Forros, Sancas e Decoração em Gesso.
             </p>
-            <button
-              href="#contato"
-              class="btn btn-sm btn-budget-hero py-2 px-3"
+            <a href="#main-footer" class="btn btn-sm btn-budget-hero py-2 px-3"
+              >Solicite seu Orçamento</a
             >
-              Solicite seu Orçamento
-            </button>
           </div>
 
           <div class="row mt-5 justify-content-center">
@@ -193,7 +228,7 @@
         <div class="container">
           <h2 class="text-center mb-5">Nossos Serviços</h2>
           <div class="row">
-            <div class="col-md-4 mb-4 h-50">
+            <div class="col-md-4 mb-4">
               <div class="card shadow card-servico">
                 <img
                   src="img/drywalldivisoria.jpeg"
@@ -206,8 +241,7 @@
                     data-text="Drywall e Divisórias"
                   ></h3>
                   <p class="card-text">
-                    Construção rápida, limpa e eficiente de paredes, nichos e
-                    estantes.
+                    Construção rápida, limpa e eficiente de paredes e nichos.
                   </p>
                   <button
                     class="btn btn-sm btn-learn-more-servicos"
@@ -219,9 +253,31 @@
                   </button>
                 </div>
               </div>
+              <div class="collapse multi-collapse mt-3" id="drywallCollapse">
+                <div
+                  class="card card-body shadow-sm border-warning position-relative"
+                >
+                  <button
+                    type="button"
+                    class="btn-close-collapse"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#drywallCollapse"
+                  >
+                    <i class="bi bi-x"></i>
+                  </button>
+                  <h5>Detalhes: Drywall</h5>
+                  <p>
+                    O Drywall oferece instalação rápida e excelente isolamento
+                    acústico.
+                  </p>
+                  <a href="#contato" class="btn btn-sm btn-budget-hero w-fit"
+                    >Solicitar Orçamento</a
+                  >
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-4 mb-4 h-50">
+            <div class="col-md-4 mb-4">
               <div class="card shadow card-servico">
                 <img
                   src="img/forrogesso.jpeg"
@@ -234,7 +290,7 @@
                     data-text="Forros de Gesso"
                   ></h3>
                   <p class="card-text">
-                    Rebaixamento de tetos e instalação de forros para embutir
+                    Rebaixamento de tetos e instalação de forros para
                     iluminação.
                   </p>
                   <button
@@ -247,9 +303,30 @@
                   </button>
                 </div>
               </div>
+              <div class="collapse multi-collapse mt-3" id="forrosCollapse">
+                <div
+                  class="card card-body shadow-sm border-warning position-relative"
+                >
+                  <button
+                    type="button"
+                    class="btn-close-collapse"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#forrosCollapse"
+                  >
+                    <i class="bi bi-x"></i>
+                  </button>
+                  <h5>Detalhes: Forros</h5>
+                  <p>
+                    Essenciais para acabamento perfeito e embutir spots de LED.
+                  </p>
+                  <a href="#contato" class="btn btn-sm btn-budget-hero w-fit"
+                    >Solicitar Orçamento</a
+                  >
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-4 mb-4 h-50">
+            <div class="col-md-4 mb-4">
               <div class="card shadow card-servico">
                 <img
                   src="img/detalhesgesso.jpeg"
@@ -274,45 +351,27 @@
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="mt-4">
-            <div class="collapse multi-collapse mb-3" id="drywallCollapse">
-              <div class="card card-body shadow-sm border-warning">
-                <h5>Detalhes: Drywall e Divisórias</h5>
-                <p>
-                  O Drywall é a solução moderna para quem busca flexibilidade.
-                  <strong>Vantagens:</strong> Instalação rápida, gera menos
-                  entulho e excelente isolamento acústico.
-                </p>
-                <a href="#contato" class="btn btn-sm btn-budget-hero w-fit"
-                  >Solicitar Orçamento</a
+              <div class="collapse multi-collapse mt-3" id="sancasCollapse">
+                <div
+                  class="card card-body shadow-sm border-warning position-relative"
                 >
-              </div>
-            </div>
-            <div class="collapse multi-collapse mb-3" id="forrosCollapse">
-              <div class="card card-body shadow-sm border-warning">
-                <h5>Detalhes: Forros de Gesso</h5>
-                <p>
-                  Essenciais para acabamento perfeito. Permite embutir spots de
-                  LED e esconder vigas, deixando o teto liso e moderno.
-                </p>
-                <a href="#contato" class="btn btn-sm btn-budget-hero w-fit"
-                  >Solicitar Orçamento</a
-                >
-              </div>
-            </div>
-            <div class="collapse multi-collapse mb-3" id="sancasCollapse">
-              <div class="card card-body shadow-sm border-warning">
-                <h5>Detalhes: Sancas e Decoração</h5>
-                <p>
-                  Adicione luxo com sancas abertas para LED indireto ou painéis
-                  3D que dão vida às suas paredes.
-                </p>
-                <a href="#contato" class="btn btn-sm btn-budget-hero w-fit"
-                  >Solicitar Orçamento</a
-                >
+                  <button
+                    type="button"
+                    class="btn-close-collapse"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#sancasCollapse"
+                  >
+                    <i class="bi bi-x"></i>
+                  </button>
+                  <h5>Detalhes: Sancas</h5>
+                  <p>
+                    Adicione luxo com sancas abertas para LED indireto ou
+                    painéis 3D.
+                  </p>
+                  <a href="#contato" class="btn btn-sm btn-budget-hero w-fit"
+                    >Solicitar Orçamento</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -512,11 +571,13 @@
           </div>
           <div class="col-lg-4 mb-4 ps-lg-5">
             <h5 class="footer-title mb-4">Nossa Localização</h5>
-            <div class="map-container-footer shadow-sm rounded overflow-hidden">
+            <div
+              class="map-container-footer shadow-sm rounded overflow-hidden map-dark"
+            >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.662241680374!2d-45.9602058!3d-20.9660517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b466184857b6f3%3A0xc0702d0910f3c0f2!2sR.%20Francisco%20Camarano%2C%20515%20-%20Piumhi%2C%20MG%2C%2037925-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.123456789!2d-45.959!3d-20.465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI3JzU0LjAiUyA0NcKwNTcnMzIuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
                 width="100%"
-                height="200"
+                height="180"
                 style="border: 0"
                 allowfullscreen=""
                 loading="lazy"
@@ -525,7 +586,7 @@
               </iframe>
             </div>
             <p class="small text-secondary mt-3">
-              <i class="bi bi-geo-alt-fill text-primary me-1"></i>
+              <i class="bi bi-geo-alt-fill me-1"></i>
               R. Francisco Camarano, 515, Piumhi - MG
             </p>
           </div>

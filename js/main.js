@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
       setMode(currentTheme === "light" ? "dark" : "light");
     });
   }
-
   // ==========================================
   // 2. ANIMAÇÕES DE SURGIMENTO AO ROLAR (SCROLL)
   // ==========================================
@@ -52,15 +51,32 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-animated");
+          // Opcional: parar de observar após animar para ganhar performance
+          // scrollObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15 }
+    {
+      // Reduzido para 0.05 (5%) para garantir que dispare assim que a pontinha aparecer no mobile
+      threshold: 0.05,
+      // Margem negativa de -50px faz com que a animação aconteça
+      // um pouco antes do item chegar ao topo da tela
+      rootMargin: "0px 0px -50px 0px",
+    }
   );
 
-  document
-    .querySelectorAll(".animate-on-scroll")
-    .forEach((el) => scrollObserver.observe(el));
+  document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // Auto-scroll para o collapse no mobile
+  document.querySelectorAll(".multi-collapse").forEach((collapse) => {
+    collapse.addEventListener("shown.bs.collapse", function () {
+      if (window.innerWidth < 992) {
+        this.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
 
   // ==========================================
   // 3. CONTADORES NUMÉRICOS (HERO)
@@ -185,4 +201,14 @@ document.addEventListener("DOMContentLoaded", function () {
       menuIcon.style.transform = "rotate(0deg)";
     });
   }
+
+  // ==========================================
+  // 8. Slides hero
+  // ==========================================
+  const myCarousel = document.querySelector("#heroCarousel");
+  const carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 5000, // Tempo em milissegundos
+    ride: "carousel",
+    pause: false, // Não para quando o mouse está em cima
+  });
 });

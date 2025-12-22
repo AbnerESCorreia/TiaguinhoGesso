@@ -30,6 +30,7 @@ body {
     border-radius: 50%;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 1.6rem;
 
     &:hover {
       transform: scale(1.1);
@@ -38,12 +39,24 @@ body {
   }
 
   .whatsapp {
-    background-color: #25d366;
-    color: white;
+    background-color: $color-secondary;
+    color: $color-primary-light;
+
+    @include dark-mode {
+      background-color: $color-secondary;
+      color: $color-text-dark;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+    }
   }
   .instagram {
-    background-color: #e1306c;
-    color: white;
+    background-color: $color-secondary;
+    color: $color-primary-light;
+
+    @include dark-mode {
+      background-color: $color-secondary;
+      color: $color-text-dark;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+    }
   }
 }
 

@@ -3,25 +3,26 @@
 
 #servicos {
   background-color: $color-background-light-secondary;
+  position: relative;
 
   @include dark-mode {
     background-color: $color-background-dark-secondary;
     color: $color-text-light;
   }
 
-  // Container dos Cards
+  // 1. Container dos Cards Principais
   .card-servico {
     position: relative;
     overflow: hidden;
     height: 400px;
     border: none;
     border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     @include dark-mode {
       background-color: #2c2c2c;
     }
 
-    // A imagem ocupa todo o card
     .card-img-top {
       height: 100%;
       width: 100%;
@@ -29,14 +30,14 @@
       transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    // Overlay que desliza da esquerda para a direita
+    // Overlay com informações e botão Saiba Mais
     .card-body-overlay {
       position: absolute;
       top: 0;
       left: -100%; // Escondido à esquerda
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85); // Fundo escuro para leitura
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(5px);
       display: flex;
       flex-direction: column;
@@ -50,7 +51,7 @@
       .card-title {
         color: $color-secondary;
         font-weight: 700;
-        min-height: 1.5em; // Reserva espaço para a animação de digitação
+        min-height: 1.5em;
         margin-bottom: 1rem;
       }
 
@@ -61,7 +62,6 @@
       }
     }
 
-    // Estado de Hover
     &:hover {
       transform: translateY(-8px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
@@ -76,22 +76,7 @@
     }
   }
 
-  // Estilo do Orçamento (dentro do card)
-  .btn-budget-hero {
-    border: 1px solid $color-secondary;
-    color: $color-secondary;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: $color-secondary;
-      color: white;
-      transform: translateY(-2px);
-    }
-  }
-
-  // Estilo do Botão Saiba Mais (dentro do card)
+  // 2. Botões dentro dos Cards
   .btn-learn-more-servicos {
     border: 1px solid $color-tertiary;
     color: $color-tertiary;
@@ -106,14 +91,38 @@
     }
   }
 
-  // Estilo da área de Detalhes (Collapse)
+  // 3. Área de Detalhes (Collapse)
   .multi-collapse {
+    z-index: 50;
+
+    // Comportamento em Telas Grandes (Desktop)
+    @media (min-width: 992px) {
+      position: absolute;
+      width: 300%;
+      left: 0;
+
+      &#forrosCollapse {
+        left: -100%;
+      }
+      &#sancasCollapse {
+        left: -200%;
+      }
+    }
+
+    // Comportamento em Mobile
+    @media (max-width: 991px) {
+      width: 100%;
+      position: relative;
+    }
+
     .card-body {
+      position: relative; // Para o botão Close se basear aqui
       background-color: #f8f9fa;
       border: 1px solid rgba($color-secondary, 0.3);
       border-left: 5px solid $color-secondary;
       border-radius: 8px;
       margin-top: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
       @include dark-mode {
         background-color: #333;
@@ -124,12 +133,63 @@
       h5 {
         color: $color-secondary;
         font-weight: 600;
+        padding-right: 35px; // Espaço para o X não sobrepor o texto
+      }
+    }
+
+    // Estilo do Botão Fechar (X)
+    .btn-close-collapse {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: $color-secondary;
+      font-size: 1.6rem;
+      line-height: 1;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+
+      &:hover {
+        transform: scale(1.2) rotate(90deg);
+        color: color.adjust($color-secondary, $lightness: -10%);
+      }
+
+      @include dark-mode {
+        color: rgba(255, 255, 255, 0.7);
+        &:hover {
+          color: $color-secondary;
+        }
       }
     }
   }
+
+  // Botão de Orçamento dentro do Collapse
+  .btn-budget-hero {
+    border: 1px solid $color-secondary;
+    color: $color-secondary;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      background-color: $color-secondary;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+
+  // Garantia de posicionamento das colunas
+  .col-md-4 {
+    position: relative;
+  }
 }
 
-// Utilitário para o botão de orçamento dentro do collapse
+// Utilitário para largura do botão
 .w-fit {
   width: fit-content;
 }
