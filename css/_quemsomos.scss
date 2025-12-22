@@ -1,5 +1,4 @@
-@use "sass:color";
-@use "variables" as *; // Adicionado 'as *' para reconhecer as variáveis diretamente
+@use "variables" as *;
 
 #quem-somos {
   background-color: $color-background-light-primary;
@@ -7,19 +6,47 @@
 
   @include dark-mode {
     background-color: $color-background-dark-primary;
+    color: $color-text-light;
   }
 
-  h3 {
-    color: $color-secondary;
-    margin-top: 1rem;
+  .card-quem-somos {
+    background-color: white;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    // Efeito de hover para os cards
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    @include dark-mode {
+      background-color: lighten($color-background-light-primary, 5%);
+      color: $color-text-light;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h3 {
+      color: $color-secondary;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
   }
 
+  // Estilização das animações (Mantenha conforme corrigido antes)
   .animate-on-scroll {
     opacity: 0;
-    transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 2s ease-out;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 0.8s ease-out;
   }
 
-  // Valores reduzidos para não sumir no mobile
   .slide-in-left {
     transform: translateX(-50px);
   }

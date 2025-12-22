@@ -227,14 +227,36 @@ body {
 }
 [data-bs-theme=dark] #quem-somos {
   background-color: #131212;
+  color: #fafafa;
 }
-#quem-somos h3 {
+#quem-somos .card-quem-somos {
+  background-color: white;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#quem-somos .card-quem-somos:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+[data-bs-theme=dark] #quem-somos .card-quem-somos {
+  background-color: white;
+  color: #fafafa;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+#quem-somos .card-quem-somos h3 {
   color: #ff8c00;
-  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#quem-somos .card-quem-somos p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 #quem-somos .animate-on-scroll {
   opacity: 0;
-  transition: transform 2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 2s ease-out;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.8s ease-out;
 }
 #quem-somos .slide-in-left {
   transform: translateX(-50px);
