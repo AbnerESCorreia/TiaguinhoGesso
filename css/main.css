@@ -239,7 +239,8 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 [data-bs-theme=dark] #quem-somos .card-quem-somos {
-  background-color: white;
+  background-color: #151414;
+  border: 1px solid #ff8c00;
   color: #fafafa;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }

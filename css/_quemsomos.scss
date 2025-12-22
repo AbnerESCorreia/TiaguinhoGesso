@@ -21,7 +21,8 @@
     }
 
     @include dark-mode {
-      background-color: lighten($color-background-light-primary, 5%);
+      background-color: $color-background-dark-secondary;
+      border: 1px solid $color-secondary;
       color: $color-text-light;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
