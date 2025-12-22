@@ -1,95 +1,80 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // ==========================================
-  // 1. TEMA (DARK MODE)
-  // ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+  initThemeControl();
+  initScrollAnimations();
+  initHeroFeatures();
+  initServiceAnimations();
+  initCollapseLogic();
+  initBackToTop();
+  initNavbarInteraction();
+});
+
+// --- CONTROLE DE TEMA (DARK MODE) ---
+function initThemeControl() {
   const toggleButton = document.getElementById("darkModeToggle");
   const htmlElement = document.documentElement;
   const modeIcon = document.getElementById("modeIcon");
 
-  function setMode(mode) {
-    if (mode === "dark") {
-      htmlElement.setAttribute("data-bs-theme", "dark");
-      localStorage.setItem("theme", "dark");
-      if (modeIcon) {
-        modeIcon.classList.remove("bi-sun-fill");
-        modeIcon.classList.add("bi-moon-stars-fill");
-        modeIcon.style.transform = "rotate(360deg)";
-      }
-    } else {
-      htmlElement.setAttribute("data-bs-theme", "light");
-      localStorage.setItem("theme", "light");
-      if (modeIcon) {
-        modeIcon.classList.remove("bi-moon-stars-fill");
-        modeIcon.classList.add("bi-sun-fill");
-        modeIcon.style.transform = "rotate(0deg)";
-      }
+  const setMode = (mode) => {
+    htmlElement.setAttribute("data-bs-theme", mode);
+    localStorage.setItem("theme", mode);
+
+    if (modeIcon) {
+      const isDark = mode === "dark";
+      modeIcon.className = isDark ? "bi bi-moon-stars-fill" : "bi bi-sun-fill";
+      modeIcon.style.transform = isDark ? "rotate(360deg)" : "rotate(0deg)";
     }
-  }
+  };
 
-  // Inicialização do Tema
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    setMode(savedTheme);
-  } else {
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    setMode(prefersDark ? "dark" : "light");
-  }
+  const savedTheme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
 
-  if (toggleButton) {
-    toggleButton.addEventListener("click", () => {
-      const currentTheme = htmlElement.getAttribute("data-bs-theme");
-      setMode(currentTheme === "light" ? "dark" : "light");
-    });
-  }
-  // ==========================================
-  // 2. ANIMAÇÕES DE SURGIMENTO AO ROLAR (SCROLL)
-  // ==========================================
+  setMode(savedTheme);
+
+  toggleButton?.addEventListener("click", () => {
+    const currentTheme = htmlElement.getAttribute("data-bs-theme");
+    setMode(currentTheme === "light" ? "dark" : "light");
+  });
+}
+
+// --- ANIMAÇÕES DE SURGIMENTO (SCROLL) ---
+function initScrollAnimations() {
   const scrollObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-animated");
-          // Opcional: parar de observar após animar para ganhar performance
-          // scrollObserver.unobserve(entry.target);
         }
       });
     },
-    {
-      // Reduzido para 0.05 (5%) para garantir que dispare assim que a pontinha aparecer no mobile
-      threshold: 0.05,
-      // Margem negativa de -50px faz com que a animação aconteça
-      // um pouco antes do item chegar ao topo da tela
-      rootMargin: "0px 0px -50px 0px",
-    }
+    { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
   );
 
-  document.querySelectorAll(".animate-on-scroll").forEach((el) => {
-    scrollObserver.observe(el);
-  });
+  document
+    .querySelectorAll(".animate-on-scroll")
+    .forEach((el) => scrollObserver.observe(el));
+}
 
-  // Auto-scroll para o collapse no mobile
-  document.querySelectorAll(".multi-collapse").forEach((collapse) => {
-    collapse.addEventListener("shown.bs.collapse", function () {
-      if (window.innerWidth < 992) {
-        this.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
+// --- HERO: CARROSSEL E CONTADORES ---
+function initHeroFeatures() {
+  const heroCarousel = document.querySelector("#heroCarousel");
+  if (heroCarousel) {
+    new bootstrap.Carousel(heroCarousel, {
+      interval: 5000,
+      ride: "carousel",
+      pause: false,
     });
-  });
+  }
 
-  // ==========================================
-  // 3. CONTADORES NUMÉRICOS (HERO)
-  // ==========================================
   const counters = document.querySelectorAll(".counter");
-  const counterSpeed = 2000;
-
   const startCounters = () => {
     counters.forEach((counter) => {
+      const target = +counter.getAttribute("data-target");
       const updateCount = () => {
-        const target = +counter.getAttribute("data-target");
         const count = +counter.innerText.replace("+", "");
-        const inc = target / (counterSpeed / 15); // Ajuste fino da fluidez
+        const inc = target / 130;
 
         if (count < target) {
           counter.innerText = Math.ceil(count + inc);
@@ -104,111 +89,95 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const counterObserver = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          startCounters();
-          counterObserver.unobserve(entry.target);
-        }
-      });
+      if (entries[0].isIntersecting) {
+        startCounters();
+        counterObserver.disconnect();
+      }
     },
     { threshold: 0.5 }
   );
 
   const heroSection = document.querySelector("#hero");
-  if (heroSection) counterObserver.observe(heroSection);
+  if (heroSection && counters.length > 0) counterObserver.observe(heroSection);
+}
 
-  // ==========================================
-  // 4. ANIMAÇÃO DE DIGITAÇÃO (SERVIÇOS) - VERSÃO ESTÁVEL
-  // ==========================================
+// --- SERVIÇOS: EFEITO DE DIGITAÇÃO ---
+function initServiceAnimations() {
   document.querySelectorAll(".card-servico").forEach((card) => {
-    let typingInterval; // Variável para armazenar o intervalo atual deste card
+    let typingInterval;
+    const titleElement = card.querySelector(".typing-text");
+    const fullText = titleElement?.getAttribute("data-text");
 
-    card.addEventListener("mouseenter", function () {
-      const titleElement = this.querySelector(".typing-text");
-      const fullText = titleElement.getAttribute("data-text");
-
-      // Limpa qualquer intervalo que ainda esteja rodando para evitar duplicação
+    card.addEventListener("mouseenter", () => {
+      if (!titleElement || !fullText) return;
       clearInterval(typingInterval);
-
-      // Reseta o texto antes de começar
-      titleElement.innerText = "";
-
+      titleElement.textContent = "";
       let i = 0;
       typingInterval = setInterval(() => {
         if (i < fullText.length) {
-          titleElement.innerText += fullText.charAt(i);
-          i++;
+          titleElement.textContent += fullText.charAt(i++);
         } else {
           clearInterval(typingInterval);
         }
-      }, 50); // Velocidade levemente mais rápida para ser mais fluido
+      }, 50);
     });
 
-    card.addEventListener("mouseleave", function () {
-      // Ao sair, cancela a animação e limpa o texto
+    card.addEventListener("mouseleave", () => {
       clearInterval(typingInterval);
-      this.querySelector(".typing-text").innerText = "";
+      if (titleElement) titleElement.textContent = "";
     });
   });
+}
 
-  // ==========================================
-  // 5. LÓGICA DE COLLAPSE (FECHAR ANTERIOR)
-  // ==========================================
+// --- LÓGICA DE COLLAPSE (SERVIÇOS) ---
+function initCollapseLogic() {
   const collapses = document.querySelectorAll(".multi-collapse");
+
   collapses.forEach((collapse) => {
     collapse.addEventListener("show.bs.collapse", () => {
       collapses.forEach((other) => {
         if (other !== collapse) {
-          const bsCollapse = bootstrap.Collapse.getInstance(other);
-          if (bsCollapse) bsCollapse.hide();
+          const instance = bootstrap.Collapse.getInstance(other);
+          if (instance) instance.hide();
         }
       });
     });
+
+    collapse.addEventListener("shown.bs.collapse", function () {
+      if (window.innerWidth < 992) {
+        this.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
+}
+
+// --- BOTÃO VOLTAR AO TOPO ---
+function initBackToTop() {
+  const btn = document.getElementById("backToTop");
+  if (!btn) return;
+
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 400 ? "block" : "none";
   });
 
-  // ==========================================
-  // 6. BOTÃO VOLTAR AO TOPO
-  // ==========================================
-  const backToTop = document.getElementById("backToTop");
-  if (backToTop) {
-    window.addEventListener("scroll", () => {
-      backToTop.style.display = window.scrollY > 400 ? "block" : "none";
-    });
-    backToTop.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
-  // ==========================================
-  // 7. TROCA DE ÍCONE DO MENU (Vertical dots -> X)
-  // ==========================================
+// --- NAVBAR: ÍCONE DO MENU MOBILE ---
+function initNavbarInteraction() {
   const menuIcon = document.getElementById("menuIcon");
-  const navbarCollapse = document.getElementById("navbarNav");
+  const navbar = document.getElementById("navbarNav");
 
-  if (menuIcon && navbarCollapse) {
-    // Quando o menu começa a abrir
-    navbarCollapse.addEventListener("show.bs.collapse", function () {
-      menuIcon.classList.remove("bi-three-dots-vertical");
-      menuIcon.classList.add("bi-x");
-      menuIcon.style.transform = "rotate(90deg)"; // Pequeno efeito visual de rotação
-    });
+  if (!menuIcon || !navbar) return;
 
-    // Quando o menu começa a fechar
-    navbarCollapse.addEventListener("hide.bs.collapse", function () {
-      menuIcon.classList.remove("bi-x");
-      menuIcon.classList.add("bi-three-dots-vertical");
-      menuIcon.style.transform = "rotate(0deg)";
-    });
-  }
-
-  // ==========================================
-  // 8. Slides hero
-  // ==========================================
-  const myCarousel = document.querySelector("#heroCarousel");
-  const carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 5000, // Tempo em milissegundos
-    ride: "carousel",
-    pause: false, // Não para quando o mouse está em cima
+  navbar.addEventListener("show.bs.collapse", () => {
+    menuIcon.classList.replace("bi-three-dots-vertical", "bi-x");
   });
-});
+
+  navbar.addEventListener("hide.bs.collapse", () => {
+    menuIcon.classList.replace("bi-x", "bi-three-dots-vertical");
+  });
+}
