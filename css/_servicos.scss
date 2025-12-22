@@ -116,8 +116,7 @@
     }
 
     .card-body {
-      position: relative; // Para o botão Close se basear aqui
-      background-color: #f8f9fa;
+      position: relative;
       border: 1px solid rgba($color-secondary, 0.3);
       border-left: 5px solid $color-secondary;
       border-radius: 8px;
@@ -125,7 +124,7 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
       @include dark-mode {
-        background-color: #333;
+        background-color: $color-background-dark-secondary;
         color: $color-text-light;
         border-color: rgba($color-secondary, 0.5);
       }
@@ -133,7 +132,7 @@
       h5 {
         color: $color-secondary;
         font-weight: 600;
-        padding-right: 35px; // Espaço para o X não sobrepor o texto
+        padding-right: 35px;
       }
     }
 
@@ -183,13 +182,11 @@
     }
   }
 
-  // Garantia de posicionamento das colunas
   .col-md-4 {
     position: relative;
   }
 }
 
-// Utilitário para largura do botão
 .w-fit {
   width: fit-content;
 }
