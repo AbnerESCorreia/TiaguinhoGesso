@@ -40,7 +40,7 @@
       background-size: cover;
       background-position: center;
 
-      // Defina suas imagens aqui
+      // Imagens
       &.img-1 {
         background-image: url("../img/detalhesgesso.jpeg");
       }
@@ -67,7 +67,7 @@
 
   .counter-box {
     h2 {
-      font-size: 4rem; // Mantendo o tamanho grande que você pediu
+      font-size: 4rem;
       font-weight: 500;
       color: $color-secondary;
     }

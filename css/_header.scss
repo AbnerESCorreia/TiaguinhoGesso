@@ -2,7 +2,7 @@
 @use "variables" as *;
 
 #header {
-  // 1. Configurações de Vidro (Glassmorphism) e Layout
+  // 1. Configurações de Vidro e Layout
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -63,7 +63,7 @@
 
     // O ícone que alterna entre dots e X
     #menuIcon {
-      display: inline-block; // Essencial para transformações
+      display: inline-block;
       font-size: 1.6rem;
       color: $color-secondary;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -112,7 +112,6 @@
     transform: rotate(15deg) scale(1.1);
   }
 
-  // Ajuste visual específico para Dark Mode via seletor global
   [data-bs-theme="dark"] & {
     border: 1px solid $color-secondary;
 

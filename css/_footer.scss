@@ -4,7 +4,7 @@
 #main-footer {
   background-color: $color-text-dark;
   color: $color-text-light;
-  font-family: "Inter", sans-serif; // Ou a fonte que você estiver usando
+  font-family: "Inter", sans-serif;
 
   .footer-title {
     font-weight: 700;
@@ -40,7 +40,7 @@
     }
   }
 
-  // Links Rápidos (Centro)
+  // Links Rápidos
   .footer-links {
     li {
       margin-bottom: 12px;
@@ -102,7 +102,6 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 
     iframe {
-      // O segredo do Dark Mode via CSS:
       filter: grayscale(100%) invert(92%) contrast(83%) brightness(88%);
       transition: all 0.5s ease;
 
@@ -110,7 +109,7 @@
       background-color: #1a1a1a;
     }
 
-    // Opcional: O mapa volta às cores originais ao passar o mouse
+    // O mapa volta às cores originais ao passar o mouse
     &:hover iframe {
       filter: grayscale(0%) invert(0%) contrast(100%) brightness(100%);
     }

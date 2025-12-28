@@ -1,9 +1,8 @@
 @use "sass:color";
 @use "variables" as *;
 
-
 #contato {
-  // 4. Estilo Glassmorphism
+  // 1. Estilo vidro
   .glasseffect {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;

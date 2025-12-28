@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
-// ESTE DEVE SER O PRIMEIRO ARQUIVO IMPORTADO
+// Variables é sempre o primeiro a adicionar
 @use "variables";
-
-// AQUI ESTÃO OS ARQUIVOS DE SEÇÃO, como _clientes.scss
 @use "global";
 @use "header";
 @use "hero";
