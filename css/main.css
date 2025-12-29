@@ -549,22 +549,22 @@ body {
   transform: translateY(-2px);
 }
 
-#main-footer {
+#footer {
   background-color: #4a4a4a;
   color: #fafafa;
   font-family: "Inter", sans-serif;
 }
-#main-footer .footer-title {
+#footer .footer-title {
   font-weight: 700;
   font-size: 1.1rem;
   color: #fff;
   text-transform: none;
 }
-#main-footer p.small {
+#footer p.small {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
 }
-#main-footer .social-icons .social-btn {
+#footer .social-icons .social-btn {
   width: 45px;
   height: 45px;
   display: flex;
@@ -577,23 +577,23 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-#main-footer .social-icons .social-btn:hover {
+#footer .social-icons .social-btn:hover {
   background: #ff8c00;
   transform: translateY(-3px);
 }
-#main-footer .footer-links li {
+#footer .footer-links li {
   margin-bottom: 12px;
 }
-#main-footer .footer-links li a {
+#footer .footer-links li a {
   color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
-#main-footer .footer-links li a:hover {
+#footer .footer-links li a:hover {
   color: #ff8c00;
 }
-#main-footer .contact-buttons .contact-item {
+#footer .contact-buttons .contact-item {
   text-align: left;
   padding: 14px 18px;
   color: #fff;
@@ -605,34 +605,34 @@ body {
   border-radius: 50px;
   transition: all 0.3s ease;
 }
-#main-footer .contact-buttons .contact-item i {
+#footer .contact-buttons .contact-item i {
   font-size: 1.1rem;
   color: #fff;
 }
-#main-footer .contact-buttons .contact-item:hover {
+#footer .contact-buttons .contact-item:hover {
   background-color: #ff8c00;
   color: white;
   transform: translateY(-2px);
 }
-#main-footer hr {
+#footer hr {
   opacity: 0.1;
 }
-#main-footer .text-secondary {
+#footer .text-secondary {
   color: rgba(255, 255, 255, 0.5) !important;
 }
-#main-footer .text-secondary strong {
+#footer .text-secondary strong {
   color: #fff;
 }
-#main-footer .map-dark {
+#footer .map-dark {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-#main-footer .map-dark iframe {
+#footer .map-dark iframe {
   filter: grayscale(100%) invert(92%) contrast(83%) brightness(88%);
   transition: all 0.5s ease;
   background-color: #1a1a1a;
 }
-#main-footer .map-dark:hover iframe {
+#footer .map-dark:hover iframe {
   filter: grayscale(0%) invert(0%) contrast(100%) brightness(100%);
 }
 
