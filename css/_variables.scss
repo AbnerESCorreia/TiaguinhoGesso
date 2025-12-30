@@ -1,9 +1,3 @@
-/* ================================================================
-   VARIÁVEIS GLOBAIS, MIXINS E PRELOADER
-   Projeto: Tiaguinho Gesso
-================================================================ 
-*/
-
 @use "sass:color";
 
 /* -------------------------------------------------------------
@@ -101,7 +95,7 @@ $default-text: $color-text-dark;
   }
 }
 
-// Pulsação da Logo no carregamento
+// Pulsação da Logo no carregam ento
 @keyframes pulse {
   0%,
   100% {

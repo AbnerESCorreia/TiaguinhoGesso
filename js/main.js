@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initCollapseLogic();
   initBackToTop();
   initNavbarInteraction();
+  initContactForm(); // Movi a lógica do form para uma função própria por organização
 });
 
-// --- CONTROLE DE TEMA (DARK MODE) ---
+// --- CONTROLE DE TEMA (FORÇANDO LIGHT MODE POR PADRÃO) ---
 function initThemeControl() {
   const toggleButton = document.getElementById("darkModeToggle");
   const htmlElement = document.documentElement;
@@ -25,17 +26,59 @@ function initThemeControl() {
     }
   };
 
-  const savedTheme =
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light");
+  // Alterado: Agora ele verifica o localStorage, se não existir, força "light"
+  // Ignoramos a preferência do sistema (prefers-color-scheme) para abrir sempre claro
+  const savedTheme = localStorage.getItem("theme") || "light";
 
   setMode(savedTheme);
 
   toggleButton?.addEventListener("click", () => {
     const currentTheme = htmlElement.getAttribute("data-bs-theme");
     setMode(currentTheme === "light" ? "dark" : "light");
+  });
+}
+
+// --- ENVIO MENSAGEM WHATSAPP ---
+function initContactForm() {
+  const contactForm = document.getElementById("contactForm");
+  if (!contactForm) return;
+
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
+    const btnSubmit = document.getElementById("btnSubmit");
+
+    const texto =
+      `*Nova Solicitação de Contato*%0A%0A` +
+      `*Nome:* ${nome}%0A` +
+      `*Telefone:* ${telefone}%0A` +
+      `*Email:* ${email}%0A` +
+      `*Mensagem:* ${mensagem}`;
+
+    const seuNumero = "553799578983"; // Número corrigido
+    const url = `https://api.whatsapp.com/send?phone=${seuNumero}&text=${texto}`;
+
+    btnSubmit.innerHTML = "ENVIANDO...";
+    btnSubmit.disabled = true;
+
+    window.open(url, "_blank");
+
+    setTimeout(() => {
+      alert(
+        "Obrigado! Sua mensagem foi preparada. Basta clicar em enviar no WhatsApp."
+      );
+      btnSubmit.innerHTML = "SOLICITAR CONTATO";
+      btnSubmit.disabled = false;
+      contactForm.reset();
+
+      const modalElement = document.getElementById("contatoModal");
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      if (modal) modal.hide();
+    }, 1000);
   });
 }
 
@@ -166,33 +209,30 @@ function initBackToTop() {
   });
 }
 
-// --- NAVBAR: ÍCONE DO MENU MOBILE ---
+// --- NAVBAR: ÍCONE DO MENU MOBILE E PRELOADER ---
 function initNavbarInteraction() {
   const menuIcon = document.getElementById("menuIcon");
   const navbar = document.getElementById("navbarNav");
 
-  if (!menuIcon || !navbar) return;
+  if (menuIcon && navbar) {
+    navbar.addEventListener("show.bs.collapse", () => {
+      menuIcon.classList.replace("bi-three-dots-vertical", "bi-x");
+    });
 
-  navbar.addEventListener("show.bs.collapse", () => {
-    menuIcon.classList.replace("bi-three-dots-vertical", "bi-x");
-  });
+    navbar.addEventListener("hide.bs.collapse", () => {
+      menuIcon.classList.replace("bi-x", "bi-three-dots-vertical");
+    });
+  }
 
-  navbar.addEventListener("hide.bs.collapse", () => {
-    menuIcon.classList.replace("bi-x", "bi-three-dots-vertical");
-  });
-
-  // --- LÓGICA DO PRELOADER ---
   window.addEventListener("load", () => {
     const preloader = document.getElementById("preloader");
-
-    // Adiciona um pequeno delay de 900ms para o usuário ver a marca
-    setTimeout(() => {
-      preloader.classList.add("loader-hidden");
-
-      // Remove do DOM após a transição para não interferir nos cliques
+    if (preloader) {
       setTimeout(() => {
-        preloader.style.display = "none";
+        preloader.classList.add("loader-hidden");
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 900);
       }, 900);
-    }, 900);
+    }
   });
 }

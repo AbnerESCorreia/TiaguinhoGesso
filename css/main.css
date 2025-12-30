@@ -1,9 +1,4 @@
 @charset "UTF-8";
-/* ================================================================
-   VARIÁVEIS GLOBAIS, MIXINS E PRELOADER
-   Projeto: Tiaguinho Gesso
-================================================================ 
-*/
 /* -------------------------------------------------------------
    1. PALETA DE CORES (BRANDING)
 ------------------------------------------------------------- */
@@ -154,6 +149,33 @@ body {
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
 }
 
+/* ================================================================
+   0. COMPONENTES GLOBAIS (Reutilizáveis)
+================================================================ */
+.btn-contact-head {
+  border: 1px solid #ff8c00;
+  color: #ff8c00;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-contact-head:hover {
+  background-color: #ff8c00;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+}
+
+/* ================================================================
+   1. HEADER (NAVBAR)
+================================================================ */
 #header {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
@@ -183,18 +205,6 @@ body {
 [data-bs-theme=dark] #header .nav-link {
   color: #fafafa;
 }
-#header .btn-contact-head {
-  border: 1px solid #ff8c00;
-  color: #ff8c00;
-  font-weight: 600;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-}
-#header .btn-contact-head:hover {
-  background-color: #ff8c00;
-  color: white;
-  transform: translateY(-2px);
-}
 #header .navbar-toggler {
   padding: 0;
   border: none;
@@ -207,7 +217,6 @@ body {
   font-size: 1.6rem;
   color: #ff8c00;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: center;
 }
 [data-bs-theme=dark] #header .navbar-toggler #menuIcon {
   color: rgba(255, 255, 255, 0.7);
@@ -218,10 +227,110 @@ body {
 [data-bs-theme=dark] #header .navbar-toggler .bi-x {
   color: #ff8c00 !important;
 }
-#header .navbar-toggler:hover #menuIcon {
-  opacity: 0.8;
+
+/* ================================================================
+   2. MODAL DE CONTATO
+================================================================ */
+#contatoModal .modal-content {
+  border: none;
+  border-radius: 20px;
+  overflow: visible;
+  background-color: #fff;
+}
+[data-bs-theme=dark] #contatoModal .modal-content {
+  background-color: #151414;
+}
+#contatoModal .btn-close-modal-custom {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  z-index: 1060;
+  border: 2px solid white;
+  background-color: #212529;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+#contatoModal .btn-close-modal-custom:hover {
+  transform: scale(1.1) rotate(90deg);
+  background-color: #ff8c00;
+}
+#contatoModal .modal-branding-side {
+  background-color: #f5f3f3;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 0 0 20px;
+}
+[data-bs-theme=dark] #contatoModal .modal-branding-side {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+#contatoModal .modal-branding-side .modal-logo {
+  max-width: 180px;
+  margin-bottom: 1.5rem;
+}
+#contatoModal .modal-branding-side .branding-text {
+  color: #4a4a4a;
+  font-size: 0.85rem;
+  text-align: center;
+}
+[data-bs-theme=dark] #contatoModal .modal-branding-side .branding-text {
+  color: #fafafa;
+}
+#contatoModal .modal-form-side {
+  padding: 2.5rem;
+}
+#contatoModal .modal-form-side .card-contact-form {
+  border: none;
+  border-radius: 15px;
+  background: transparent;
+}
+[data-bs-theme=dark] #contatoModal .modal-form-side .card-contact-form {
+  background-color: rgb(28.8365853659, 27.4634146341, 27.4634146341);
+}
+#contatoModal .modal-form-side .form-title {
+  color: #ff8c00;
+  font-weight: 700;
+}
+#contatoModal .modal-form-side .form-subtitle {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+#contatoModal .modal-form-side .btn-contact-head {
+  width: 100%;
+  margin-top: 1rem;
+}
+#contatoModal .minimal-input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  background-color: transparent !important;
+}
+#contatoModal .minimal-input:focus {
+  box-shadow: none;
+  border-bottom-color: #ff8c00;
+}
+[data-bs-theme=dark] #contatoModal .minimal-input {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+#contatoModal .no-resize {
+  resize: none;
 }
 
+/* ================================================================
+   3. BOTÃO DARK MODE (FIXO)
+================================================================ */
 #darkModeToggle {
   width: 40px;
   height: 40px;
@@ -249,6 +358,23 @@ body {
   color: #ff8c00;
 }
 
+/* ================================================================
+   4. RESPONSIVIDADE
+================================================================ */
+@media (max-width: 991px) {
+  #contatoModal .modal-branding-side {
+    border-radius: 20px 20px 0 0;
+    padding: 2rem;
+  }
+  #contatoModal .modal-form-side {
+    padding: 1.5rem;
+  }
+  #contatoModal .btn-close-modal-custom {
+    top: 10px;
+    right: 10px;
+    border-color: transparent;
+  }
+}
 #hero {
   min-height: 90vh;
   position: relative;

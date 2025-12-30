@@ -113,12 +113,14 @@
               class="navbar-nav m-0 align-items-center d-flex flex-row gap-2 justify-content-center mt-3 mt-lg-0"
             >
               <li class="nav-item">
-                <a
-                  href="https://wa.me/553799578983"
+                <button
+                  type="button"
                   class="btn btn-sm btn-contact-head py-2 px-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contatoModal"
                 >
                   Contatar
-                </a>
+                </button>
               </li>
               <li class="nav-item">
                 <button
@@ -635,10 +637,48 @@
             </div>
           </div>
           <div class="col-lg-4 mb-4 ps-lg-5">
-            <h5 class="footer-title mb-4">Funcionamento</h5>
-            <div
-              class="map-container-footer shadow-sm rounded overflow-hidden map-dark"
-            ></div>
+            <h5 class="footer-title mb-4">Navegação</h5>
+            <ul class="list-unstyled footer-links">
+              <li class="mb-2">
+                <a
+                  href="#hero"
+                  class="text-secondary text-decoration-none small"
+                >
+                  <i class="bi bi-chevron-right me-1"></i> Início
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#servicos"
+                  class="text-secondary text-decoration-none small"
+                >
+                  <i class="bi bi-chevron-right me-1"></i> Nossos Serviços
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#obras"
+                  class="text-secondary text-decoration-none small"
+                >
+                  <i class="bi bi-chevron-right me-1"></i> Galeria de Obras
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contatoModal"
+                  class="text-secondary text-decoration-none small"
+                >
+                  <i class="bi bi-chevron-right me-1"></i> Solicitar Orçamento
+                </a>
+              </li>
+            </ul>
+
+            <h5 class="footer-title mt-4 mb-3">Atendimento</h5>
+            <p class="small text-secondary mb-0">
+              <i class="bi bi-clock me-2"></i> Seg. a Sex. — 08:00 às 18:00
+            </p>
           </div>
           <div class="col-lg-4 mb-4">
             <h5 class="footer-title mb-4">Entre em contato conosco</h5>
@@ -698,5 +738,92 @@
     >
       <i class="bi bi-arrow-up"></i>
     </a>
+
+    <div class="modal fade" id="contatoModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <button
+            type="button"
+            class="btn-close-modal-custom"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+
+          <div class="modal-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6 modal-branding-side">
+                <img
+                  src="img/LogoHeaderTG.png"
+                  alt="Tiaguinho Gesso"
+                  class="modal-logo"
+                />
+                <p class="branding-text">
+                  Fale agora conosco, estamos aguardando seu contato.
+                </p>
+              </div>
+
+              <div class="col-lg-6 modal-form-side">
+                <div class="card card-contact-form">
+                  <div class="card-body p-4">
+                    <h5 class="form-title">Ligamos para você!</h5>
+                    <p class="form-subtitle">
+                      Envie seus dados e nossa equipe entrará em contato.
+                    </p>
+
+                    <form id="contactForm">
+                      <div class="mb-3">
+                        <input
+                          type="text"
+                          id="nome"
+                          class="form-control minimal-input"
+                          placeholder="NOME"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          type="tel"
+                          id="telefone"
+                          class="form-control minimal-input"
+                          placeholder="TELEFONE"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control minimal-input"
+                          placeholder="E-MAIL"
+                          required
+                        />
+                      </div>
+                      <div class="mb-4">
+                        <textarea
+                          id="mensagem"
+                          class="form-control minimal-input no-resize"
+                          rows="2"
+                          placeholder="MENSAGEM"
+                          required
+                        ></textarea>
+                      </div>
+                      <button
+                        type="submit"
+                        id="btnSubmit"
+                        class="btn-contact-head w-100 py-2 fw-bold shadow-sm"
+                      >
+                        SOLICITAR CONTATO
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
