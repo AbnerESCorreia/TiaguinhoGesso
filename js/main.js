@@ -180,4 +180,19 @@ function initNavbarInteraction() {
   navbar.addEventListener("hide.bs.collapse", () => {
     menuIcon.classList.replace("bi-x", "bi-three-dots-vertical");
   });
+
+  // --- LÓGICA DO PRELOADER ---
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    // Adiciona um pequeno delay de 900ms para o usuário ver a marca
+    setTimeout(() => {
+      preloader.classList.add("loader-hidden");
+
+      // Remove do DOM após a transição para não interferir nos cliques
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 900);
+    }, 900);
+  });
 }
