@@ -2,10 +2,10 @@
 @use "variables" as *;
 
 #clientes {
-  background-color: $color-background-light-primary;
+  background-color: $color-bg-light-primary;
 
   @include dark-mode {
-    background-color: $color-background-dark-primary;
+    background-color: $color-bg-dark-primary;
     color: $color-text-light;
   }
 

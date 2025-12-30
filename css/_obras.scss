@@ -1,10 +1,10 @@
 @use "variables" as *;
 
 #obras {
-  background-color: $color-background-light-secondary;
+  background-color: $color-bg-light-secondary;
 
   @include dark-mode {
-    background-color: $color-background-dark-secondary;
+    background-color: $color-bg-dark-secondary;
     color: $color-text-light;
   }
 

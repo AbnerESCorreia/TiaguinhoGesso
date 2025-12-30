@@ -2,11 +2,11 @@
 @use "variables" as *;
 
 #servicos {
-  background-color: $color-background-light-secondary;
+  background-color: $color-bg-light-secondary;
   position: relative;
 
   @include dark-mode {
-    background-color: $color-background-dark-secondary;
+    background-color: $color-bg-dark-secondary;
     color: $color-text-light;
   }
 
@@ -124,7 +124,7 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
       @include dark-mode {
-        background-color: $color-background-dark-secondary;
+        background-color: $color-bg-dark-secondary;
         color: $color-text-light;
         border-color: rgba($color-secondary, 0.5);
       }

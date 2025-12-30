@@ -1,11 +1,11 @@
 @use "variables" as *;
 
 #quem-somos {
-  background-color: $color-background-light-primary;
+  background-color: $color-bg-light-primary;
   overflow-x: hidden;
 
   @include dark-mode {
-    background-color: $color-background-dark-primary;
+    background-color: $color-bg-dark-primary;
     color: $color-text-light;
   }
 
@@ -21,7 +21,7 @@
     }
 
     @include dark-mode {
-      background-color: $color-background-dark-secondary;
+      background-color: $color-bg-dark-secondary;
       border: 1px solid $color-secondary;
       color: $color-text-light;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
