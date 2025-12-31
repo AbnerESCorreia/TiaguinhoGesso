@@ -6,7 +6,7 @@
 
 Uma landing page premium desenvolvida para a **Tiaguinho Gesso**, empresa especializada em gesso decorativo e reformas. O projeto foi arquitetado para oferecer uma experiência de usuário (UX) moderna, com foco total em conversão de leads e apresentação visual de alta qualidade.
 
-🚀 **Acesse o projeto:** [Link para o Site Tiaguinho Gesso]([https://abnerescorreia.github.io/tiaguinho-gesso/])
+🚀 **Acesse o projeto:** [Link para o Site Tiaguinho Gesso](https://abnerescorreia.github.io/TiaguinhoGesso/)
 
 ---
 
@@ -53,11 +53,11 @@ As seguintes tecnologias foram aplicadas para garantir performance e escalabilid
 
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/abnerescorreia/tiaguinho-gesso.git](https://github.com/abnerescorreia/tiaguinho-gesso.git)
+   git clone [https://github.com/abnerescorreia/tiaguinho-gesso.git](https://github.com/abnerescorreia/TiaguinhoGesso.git)
 
 2. Navegue até a pasta:
    ```bash
-   cd tiaguinho-gesso
+   cd TiaguinhoGesso
 
 3. Abra o arquivo index.html no seu navegador de preferência.
 - 👤 Autor
