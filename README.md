@@ -57,7 +57,7 @@ As seguintes tecnologias foram aplicadas para garantir performance e escalabilid
 
 2. Navegue até a pasta:
    ```bash
-   cd Calculadora
+   cd tiaguinho-gesso
 
 3. Abra o arquivo index.html no seu navegador de preferência.
 - 👤 Autor
