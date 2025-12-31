@@ -6,7 +6,7 @@
 
 Uma landing page premium desenvolvida para a **Tiaguinho Gesso**, empresa especializada em gesso decorativo e reformas. O projeto foi arquitetado para oferecer uma experiência de usuário (UX) moderna, com foco total em conversão de leads e apresentação visual de alta qualidade.
 
-🚀 **Acesse o projeto:** [Link para o Site Tiaguinho Gesso](https://abnerescorreia.github.io/tiaguinho-gesso/)
+🚀 **Acesse o projeto:** [Link para o Site Tiaguinho Gesso](https://abnerescorreia.github.io/TiaguinhoGesso/)
 
 ---
 
@@ -21,9 +21,9 @@ Uma landing page premium desenvolvida para a **Tiaguinho Gesso**, empresa especi
 - **Glassmorphism Design:** Header com efeito de vidro fosco e desfoque de fundo dinâmico via CSS.
 - **Dual Theme System:** Suporte a **Light e Dark Mode** com persistência de escolha do usuário via `localStorage`.
 - **Conversão via WhatsApp:** Modal de contato personalizada que estrutura os dados do formulário e redireciona o cliente diretamente para o WhatsApp do profissional.
-- **Micro-interações:** - Efeito de digitação (*typing effect*) interativo nos cards de serviço.
+- **Micro-interações:** - Efeito de digitação (_typing effect_) interativo nos cards de serviço.
   - Contadores numéricos animados para estatísticas de obras.
-  - Animações de surgimento ao dar scroll (*Scroll Reveal*).
+  - Animações de surgimento ao dar scroll (_Scroll Reveal_).
 - **Navegação Inteligente:** Navbar responsiva com ícones dinâmicos e fechamento automático.
 - **Mobile First:** Interface totalmente adaptável para qualquer tamanho de tela, garantindo acessibilidade em dispositivos móveis.
 
@@ -52,14 +52,21 @@ As seguintes tecnologias foram aplicadas para garantir performance e escalabilid
 ## 📂 Como rodar o projeto localmente
 
 1. Clone o repositório:
+
    ```bash
    git clone [https://github.com/abnerescorreia/tiaguinho-gesso.git](https://github.com/abnerescorreia/tiaguinho-gesso.git)
 
+   ```
+
 2. Navegue até a pasta:
+
    ```bash
    cd Calculadora
 
+   ```
+
 3. Abra o arquivo index.html no seu navegador de preferência.
+
 - 👤 Autor
 - Abner E. S. Correia
 - LinkedIn: https://www.linkedin.com/in/abner-c-33a983106/?skipRedirect=true
