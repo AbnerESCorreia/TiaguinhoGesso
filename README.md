@@ -1,8 +1,8 @@
 # 🏗️ Tiaguinho Gesso — Landing Page Profissional
 
-![GitHub repo size](https://img.shields.io/github/repo-size/abnerescorreia/tiaguinho-gesso?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/abnerescorreia/tiaguinho-gesso?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/abnerescorreia/tiaguinho-gesso?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/abnerescorreia/TiaguinhoGesso?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/abnerescorreia/TiaguinhoGesso?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/abnerescorreia/TiaguinhoGesso?style=for-the-badge)
 
 Uma landing page premium desenvolvida para a **Tiaguinho Gesso**, empresa especializada em gesso decorativo e reformas. O projeto foi arquitetado para oferecer uma experiência de usuário (UX) moderna, com foco total em conversão de leads e apresentação visual de alta qualidade.
 
