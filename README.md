@@ -6,7 +6,7 @@
 
 Uma landing page premium desenvolvida para a **Tiaguinho Gesso**, empresa especializada em gesso decorativo e reformas. O projeto foi arquitetado para oferecer uma experiência de usuário (UX) moderna, com foco total em conversão de leads e apresentação visual de alta qualidade.
 
-🚀 **Acesse o projeto:** [Link para o Site Tiaguinho Gesso](https://abnerescorreia.github.io/tiaguinho-gesso/)
+🚀 **Acesse o projeto:** [Link para o Site Tiaguinho Gesso]([https://abnerescorreia.github.io/tiaguinho-gesso/])
 
 ---
 
