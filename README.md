@@ -67,7 +67,7 @@ As seguintes tecnologias foram aplicadas para garantir performance e escalabilid
 
 3. Abra o arquivo index.html no seu navegador de preferência.
 
-- 👤 Autor
+## 👤 Autor
 - Abner E. S. Correia
 - LinkedIn: https://www.linkedin.com/in/abner-c-33a983106/?skipRedirect=true
 - GitHub: @abnerescorreia
